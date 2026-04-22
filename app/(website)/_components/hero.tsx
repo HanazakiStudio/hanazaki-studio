@@ -2,14 +2,14 @@
 
 import { motion, useScroll, useTransform } from "framer-motion";
 
-import {
-  ContainerAnimation,
-  SubTitleAnimation,
-  TagAnimation,
-  TitleAnimation,
-  SubTitleLineAnimation,
-  SubTitleItemAnimation,
-} from "@/constants/framer/hero-animations";
+// import {
+//   ContainerAnimation,
+//   SubTitleAnimation,
+//   TagAnimation,
+//   TitleAnimation,
+//   SubTitleLineAnimation,
+//   SubTitleItemAnimation,
+// } from "@/constants/framer/hero-animations";
 import { ArrowUpRight } from "lucide-react";
 import { useEffect, useRef } from "react";
 
@@ -45,11 +45,11 @@ export function Hero() {
         <motion.div
           initial="initial"
           animate="animate"
-          variants={ContainerAnimation}
+          variants={{}}
           className="relative w-full flex flex-col items-center justify-center space-y-6 sm:items-center"
         >
           <motion.div
-            variants={TagAnimation}
+            variants={{}}
             className="flex items-center justify-center space-x-1 bg-gold-primary/25 px-4 py-1 rounded-md cursor-default"
           >
             <span className="uppercase poppins-font font-semibold !leading-none text-gold-primary text-sm text-center sm:mt-[2px] sm:text-base">
@@ -59,7 +59,7 @@ export function Hero() {
           </motion.div>
 
           <motion.h1
-            variants={TitleAnimation}
+            variants={{}}
             className="poppins-font text-2xl max-w-[275px] text-light-primary font-semibold text-center sm:text-5xl sm:max-w-none lg:text-7xl lg:leading-[1.1]"
           >
             Onde a busca pelo{" "}
