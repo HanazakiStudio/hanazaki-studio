@@ -60,7 +60,7 @@ export function Hero() {
 
           <motion.h1
             variants={TitleAnimation}
-            className="poppins-font text-2xl max-w-[320px] text-light-primary font-semibold text-center sm:text-5xl sm:max-w-none lg:text-7xl lg:leading-[1.1]"
+            className="poppins-font text-2xl max-w-[275px] text-light-primary font-semibold text-center sm:text-5xl sm:max-w-none lg:text-7xl lg:leading-[1.1]"
           >
             Salas imersivas que transformam visita em{" "}
             <strong className="font-semibold bg-gradient-to-b from-[#D1BC7D] to-[#534A2F] inline-block text-transparent bg-clip-text">
@@ -99,31 +99,10 @@ export function Hero() {
 
             <motion.p
               variants={SubTitleItemAnimation}
-              className="min-w-[150px] manrope-font text-light-primary text-nowrap sm:min-w-[170px] text-base lg:min-w-[200px] lg:text-xl"
+              className="min-w-[107px] manrope-font text-light-primary text-nowrap sm:min-w-[123px] text-base lg:min-w-[154px] lg:text-xl"
             >
               Integrada ao Stand
             </motion.p>
-          </motion.div>
-
-          <motion.div
-            variants={TagAnimation}
-            className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 pt-4"
-          >
-            <a
-              href="https://wa.me/5516997054012"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="poppins-font font-semibold text-sm sm:text-base bg-gold-primary text-[#0e0e0e] px-6 py-3 rounded-md hover:bg-gold-primary/90 transition-colors"
-            >
-              Falar no WhatsApp
-            </a>
-            <a
-              href="#projetos"
-              className="poppins-font font-semibold text-sm sm:text-base border border-gold-primary text-gold-primary px-6 py-3 rounded-md hover:bg-gold-primary/10 transition-colors flex items-center gap-1"
-            >
-              Ver projetos
-              <ArrowUpRight size={18} />
-            </a>
           </motion.div>
         </motion.div>
       </div>
