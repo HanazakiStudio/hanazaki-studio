@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 
 import {
   ContainerAnimation,
@@ -11,10 +11,36 @@ import {
   SubTitleItemAnimation,
 } from "@/constants/framer/hero-animations";
 import { ArrowUpRight } from "lucide-react";
+import { useEffect, useRef } from "react";
 
 export function Hero() {
+  const { scrollYProgress } = useScroll();
+  const y = useTransform(scrollYProgress, [0, 1], ["0%", "60%"]);
+
+  const videoRef = useRef<HTMLVideoElement | null>(null);
+
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.play();
+    }
+  }, [videoRef]);
+
   return (
     <section className="w-full h-screen relative bg-hero-mobile bg-cover bg-center bg-no-repeat after:content-[''] after:w-full after:h-full after:absolute after:top-0 after:left-0 after:right-0 after:bottom-0 after:z-10 after:bg-gradient-to-b from-[#0e0e0e]/70 via-[#0e0e0e]/70 to-[#0e0e0e]">
+      <div className="hidden sm:block w-full h-full absolute top-0 left-0 right-0 bottom-0">
+        <video
+          ref={videoRef}
+          loop
+          muted
+          autoPlay
+          playsInline
+          disablePictureInPicture
+          className="w-full h-full object-cover object-center"
+        >
+          <source src="/hero-video.webm" type="video/webm" />
+        </video>
+      </div>
+
       <div className="relative z-20 w-full h-full px-6 flex flex-col justify-center sm:px-16 bg-hero-glows bg-no-repeat bg-contain bg-center lg:container lg:mx-auto">
         <motion.div
           initial="initial"
