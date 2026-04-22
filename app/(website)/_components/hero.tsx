@@ -83,7 +83,7 @@ export function Hero() {
             variants={TagAnimation}
             className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 pt-4"
           >
-            
+            <a
               href="https://wa.me/5516997054012"
               target="_blank"
               rel="noopener noreferrer"
@@ -91,7 +91,7 @@ export function Hero() {
             >
               Falar no WhatsApp
             </a>
-            
+            <a
               href="#projetos"
               className="poppins-font font-semibold text-sm sm:text-base border border-gold-primary text-gold-primary px-6 py-3 rounded-md hover:bg-gold-primary/10 transition-colors flex items-center gap-1"
             >
