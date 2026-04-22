@@ -26,9 +26,13 @@ export function Hero() {
   }, [videoRef]);
 
   return (
-    <section className="w-full h-screen relative bg-hero-mobile bg-cover bg-center bg-no-repeat after:content-[&quot;&quot;] after:w-full after:h-full after:absolute after:top-0 after:left-0 after:right-0 after:bottom-0 after:z-10 after:bg-gradient-to-b from-[#0e0e0e]/70 via-[#0e0e0e]/70 to-[#0e0e0e]">
+    <section className="w-full h-screen relative bg-hero-mobile bg-cover bg-center bg-no-repeat">
       
-      <div className="hidden sm:block w-full h-full absolute top-0 left-0 right-0 bottom-0">
+      {/* Overlay */}
+      <div className="absolute inset-0 z-10 bg-gradient-to-b from-[#0e0e0e]/70 via-[#0e0e0e]/70 to-[#0e0e0e]" />
+
+      {/* Video */}
+      <div className="hidden sm:block w-full h-full absolute inset-0">
         <video
           ref={videoRef}
           loop
@@ -74,7 +78,7 @@ export function Hero() {
 
           <motion.div
             variants={SubTitleAnimation}
-            className="w-full overflow-hidden flex flex-col items-center justify-center space-y-2 sm:flex-row sm:space-y-0 sm:space-x-4 sm:before:content-[&quot;&quot;] sm:before:h-[1px] sm:before:basis-full sm:before:bg-gold-primary sm:before:mr-4 sm:after:content-[&quot;&quot;] sm:after:h-[1px] sm:after:basis-full sm:after:bg-gold-primary sm:after:ml-4"
+            className="w-full overflow-hidden flex flex-col items-center justify-center space-y-2 sm:flex-row sm:space-y-0 sm:space-x-4"
           >
             
             <motion.p
@@ -84,10 +88,7 @@ export function Hero() {
               Unreal Engine
             </motion.p>
 
-            <motion.div
-              variants={SubTitleLineAnimation}
-              className="h-6 w-[1px] min-w-[1px] bg-gold-primary lg:h-8"
-            />
+            <motion.div className="h-6 w-[1px] bg-gold-primary lg:h-8" />
 
             <motion.p
               variants={SubTitleItemAnimation}
@@ -96,14 +97,11 @@ export function Hero() {
               Alto Padrão
             </motion.p>
 
-            <motion.div
-              variants={SubTitleLineAnimation}
-              className="h-6 w-[1px] min-w-[1px] bg-gold-primary lg:h-8"
-            />
+            <motion.div className="h-6 w-[1px] bg-gold-primary lg:h-8" />
 
             <motion.p
               variants={SubTitleItemAnimation}
-              className="min-w-[107px] manrope-font text-light-primary text-nowrap sm:min-w-[123px] text-base lg:min-w-[154px] lg:text-xl"
+              className="manrope-font text-light-primary text-base lg:text-xl"
             >
               Integrada ao Stand
             </motion.p>
