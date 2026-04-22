@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 
 import {
   ContainerAnimation,
@@ -11,36 +11,10 @@ import {
   SubTitleItemAnimation,
 } from "@/constants/framer/hero-animations";
 import { ArrowUpRight } from "lucide-react";
-import { useEffect, useRef } from "react";
 
 export function Hero() {
-  const { scrollYProgress } = useScroll();
-  const y = useTransform(scrollYProgress, [0, 1], ["0%", "60%"]);
-
-  const videoRef = useRef<HTMLVideoElement | null>(null);
-
-  useEffect(() => {
-    if (videoRef.current) {
-      videoRef.current.play();
-    }
-  }, [videoRef]);
-
   return (
     <section className="w-full h-screen relative bg-hero-mobile bg-cover bg-center bg-no-repeat after:content-[''] after:w-full after:h-full after:absolute after:top-0 after:left-0 after:right-0 after:bottom-0 after:z-10 after:bg-gradient-to-b from-[#0e0e0e]/70 via-[#0e0e0e]/70 to-[#0e0e0e]">
-      <div className="hidden sm:block w-full h-full absolute top-0 left-0 right-0 bottom-0">
-        <video
-          ref={videoRef}
-          loop
-          muted
-          autoPlay
-          playsInline
-          disablePictureInPicture
-          className="w-full h-full object-cover object-center"
-        >
-          <source src="/hero-video.webm" type="video/webm" />
-        </video>
-      </div>
-
       <div className="relative z-20 w-full h-full px-6 flex flex-col justify-center sm:px-16 bg-hero-glows bg-no-repeat bg-contain bg-center lg:container lg:mx-auto">
         <motion.div
           initial="initial"
@@ -53,24 +27,20 @@ export function Hero() {
             className="flex items-center justify-center space-x-1 bg-gold-primary/25 px-4 py-1 rounded-md cursor-default"
           >
             <span className="uppercase poppins-font font-semibold !leading-none text-gold-primary text-sm text-center sm:mt-[2px] sm:text-base">
-              Mergulhe na Futura Arquitetura
+              Para Incorporadoras de Alto Padrão
             </span>
             <ArrowUpRight color="#B9A568" />
           </motion.div>
 
           <motion.h1
             variants={TitleAnimation}
-            className="poppins-font text-2xl max-w-[275px] text-light-primary font-semibold text-center sm:text-5xl sm:max-w-none lg:text-7xl lg:leading-[1.1]"
+            className="poppins-font text-2xl max-w-[320px] text-light-primary font-semibold text-center sm:text-5xl sm:max-w-none lg:text-7xl lg:leading-[1.1]"
           >
-            Onde a busca pelo{" "}
+            Salas imersivas que transformam visita em{" "}
             <strong className="font-semibold bg-gradient-to-b from-[#D1BC7D] to-[#534A2F] inline-block text-transparent bg-clip-text">
-              excepcional
-            </strong>{" "}
-            redefine o{" "}
-            <strong className="font-semibold bg-gradient-to-b from-[#D1BC7D] to-[#534A2F] inline-block text-transparent bg-clip-text">
-              padrão
-            </strong>{" "}
-            do mercado.
+              decisão de compra
+            </strong>
+            .
           </motion.h1>
 
           <motion.div
@@ -81,7 +51,7 @@ export function Hero() {
               variants={SubTitleItemAnimation}
               className="manrope-font text-light-primary text-base lg:text-xl"
             >
-              Tecnologia
+              Unreal Engine
             </motion.p>
 
             <motion.div
@@ -93,7 +63,7 @@ export function Hero() {
               variants={SubTitleItemAnimation}
               className="manrope-font text-light-primary text-base lg:text-xl"
             >
-              Interatividade
+              Alto Padrão
             </motion.p>
 
             <motion.div
@@ -103,10 +73,31 @@ export function Hero() {
 
             <motion.p
               variants={SubTitleItemAnimation}
-              className="min-w-[107px] manrope-font text-light-primary text-nowrap sm:min-w-[123px] text-base lg:min-w-[154px] lg:text-xl"
+              className="min-w-[150px] manrope-font text-light-primary text-nowrap sm:min-w-[170px] text-base lg:min-w-[200px] lg:text-xl"
             >
-              Realidade virtual
+              Integrada ao Stand
             </motion.p>
+          </motion.div>
+
+          <motion.div
+            variants={TagAnimation}
+            className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 pt-4"
+          >
+            
+              href="https://wa.me/5516997054012"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="poppins-font font-semibold text-sm sm:text-base bg-gold-primary text-[#0e0e0e] px-6 py-3 rounded-md hover:bg-gold-primary/90 transition-colors"
+            >
+              Falar no WhatsApp
+            </a>
+            
+              href="#projetos"
+              className="poppins-font font-semibold text-sm sm:text-base border border-gold-primary text-gold-primary px-6 py-3 rounded-md hover:bg-gold-primary/10 transition-colors flex items-center gap-1"
+            >
+              Ver projetos
+              <ArrowUpRight size={18} />
+            </a>
           </motion.div>
         </motion.div>
       </div>
