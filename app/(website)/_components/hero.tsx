@@ -1,74 +1,131 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
+
+import {
+  ContainerAnimation,
+  SubTitleAnimation,
+  TagAnimation,
+  TitleAnimation,
+  SubTitleLineAnimation,
+  SubTitleItemAnimation,
+} from "@/constants/framer/hero-animations";
 import { ArrowUpRight } from "lucide-react";
 import { useEffect, useRef } from "react";
 
 export function Hero() {
+  const { scrollYProgress } = useScroll();
+  const y = useTransform(scrollYProgress, [0, 1], ["0%", "60%"]);
+
   const videoRef = useRef<HTMLVideoElement | null>(null);
 
   useEffect(() => {
     if (videoRef.current) {
       videoRef.current.play();
     }
-  }, []);
+  }, [videoRef]);
 
   return (
-    <section className="w-full h-screen relative bg-hero-mobile bg-cover bg-center bg-no-repeat">
-      
-      {/* Overlay */}
-      <div className="absolute inset-0 z-10 bg-gradient-to-b from-[#0e0e0e]/70 via-[#0e0e0e]/70 to-[#0e0e0e]" />
-
-      {/* Video */}
-      <div className="hidden sm:block absolute inset-0">
+    <section className="w-full h-screen relative bg-hero-mobile bg-cover bg-center bg-no-repeat after:content-[''] after:w-full after:h-full after:absolute after:top-0 after:left-0 after:right-0 after:bottom-0 after:z-10 after:bg-gradient-to-b from-[#0e0e0e]/60 via-[#0e0e0e]/90 to-[#0e0e0e]">
+      <div className="hidden sm:block w-full h-full absolute top-0 left-0 right-0 bottom-0">
         <video
           ref={videoRef}
           loop
           muted
           autoPlay
           playsInline
-          className="w-full h-full object-cover"
+          disablePictureInPicture
+          className="w-full h-full object-cover object-center"
         >
           <source src="/hero-video.webm" type="video/webm" />
         </video>
       </div>
 
-      {/* Content */}
-      <div className="relative z-20 w-full h-full px-6 flex flex-col justify-center items-center text-center">
-        
+      <div className="relative z-20 w-full h-full px-6 flex flex-col justify-center sm:px-16 bg-hero-glows bg-no-repeat bg-contain bg-center lg:container lg:mx-auto">
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="flex items-center gap-2 bg-yellow-500/20 px-4 py-1 rounded-md"
+          initial="initial"
+          animate="animate"
+          variants={ContainerAnimation}
+          className="relative w-full flex flex-col items-center justify-center space-y-6 sm:items-center"
         >
-          <span className="text-yellow-400 text-sm font-semibold uppercase">
-            Para Incorporadoras de Alto Padrão
-          </span>
-          <ArrowUpRight size={16} />
+          <motion.div
+            variants={TagAnimation}
+            className="flex items-center justify-center space-x-1 bg-gold-primary/25 px-4 py-1 rounded-md cursor-default"
+          >
+            <span className="uppercase poppins-font font-semibold !leading-none text-gold-primary text-sm text-center sm:mt-[2px] sm:text-base">
+              Para Incorporadoras de Alto Padrão
+            </span>
+            <ArrowUpRight color="#B9A568" />
+          </motion.div>
+
+          <motion.h1
+            variants={TitleAnimation}
+            className="poppins-font text-2xl max-w-[275px] text-light-primary font-semibold text-center sm:text-5xl sm:max-w-none lg:text-7xl lg:leading-[1.1]"
+          >
+            Salas imersivas que transformam visita em{" "}
+            <strong className="font-semibold text-[#D1BC7D]">
+              decisão de compra
+            </strong>
+            .
+          </motion.h1>
+
+          <motion.div
+            variants={SubTitleAnimation}
+            className="w-full overflow-hidden flex flex-col items-center justify-center space-y-2 sm:flex-row sm:space-y-0 sm:space-x-4 sm:before:content-[''] sm:before:h-[1px] sm:before:basis-full sm:before:bg-gold-primary sm:before:mr-4 after:content-[''] sm:after:h-[1px] sm:after:basis-full sm:after:bg-gold-primary sm:after:ml-4"
+          >
+            <motion.p
+              variants={SubTitleItemAnimation}
+              className="manrope-font text-light-primary text-nowrap text-base lg:text-xl"
+            >
+              Interatividade
+            </motion.p>
+
+            <motion.div
+              variants={SubTitleLineAnimation}
+              className="h-6 w-[1px] min-w-[1px] bg-gold-primary lg:h-8"
+            />
+
+            <motion.p
+              variants={SubTitleItemAnimation}
+              className="manrope-font text-light-primary text-nowrap text-base lg:text-xl"
+            >
+              Alto Padrão
+            </motion.p>
+
+            <motion.div
+              variants={SubTitleLineAnimation}
+              className="h-6 w-[1px] min-w-[1px] bg-gold-primary lg:h-8"
+            />
+
+            <motion.p
+              variants={SubTitleItemAnimation}
+              className="manrope-font text-light-primary text-nowrap text-base lg:text-xl"
+            >
+              Sob Medida
+            </motion.p>
+          </motion.div>
+
+          <motion.div
+            variants={TagAnimation}
+            className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 pt-4"
+          >
+            <a
+              href="https://wa.me/5516997054012"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="poppins-font font-semibold text-sm sm:text-base bg-gold-primary text-[#0e0e0e] px-6 py-3 rounded-md hover:bg-gold-primary/90 transition-colors"
+            >
+              Falar no WhatsApp
+            </a>
+            <a
+              href="#projetos"
+              className="poppins-font font-semibold text-sm sm:text-base border border-gold-primary text-gold-primary px-6 py-3 rounded-md hover:bg-gold-primary/10 transition-colors flex items-center gap-1"
+            >
+              Ver projetos
+              <ArrowUpRight size={18} />
+            </a>
+          </motion.div>
         </motion.div>
-
-        <motion.h1
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="text-white text-3xl sm:text-5xl lg:text-7xl font-semibold mt-6 max-w-4xl"
-        >
-          Salas imersivas que transformam visita em{" "}
-          <span className="bg-gradient-to-b from-yellow-400 to-yellow-700 text-transparent bg-clip-text">
-            decisão de compra
-          </span>
-        </motion.h1>
-
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.5 }}
-          className="text-gray-300 mt-6 text-lg"
-        >
-          Unreal Engine • Alto Padrão • Integrada ao Stand
-        </motion.p>
-
       </div>
     </section>
   );
