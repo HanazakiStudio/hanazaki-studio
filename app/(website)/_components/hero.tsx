@@ -26,7 +26,8 @@ export function Hero() {
   }, [videoRef]);
 
   return (
-    <section className="w-full h-screen relative bg-hero-mobile bg-cover bg-center bg-no-repeat after:content-[''] after:w-full after:h-full after:absolute after:top-0 after:left-0 after:right-0 after:bottom-0 after:z-10 after:bg-gradient-to-b from-[#0e0e0e]/70 via-[#0e0e0e]/70 to-[#0e0e0e]">
+    <section className="w-full h-screen relative bg-hero-mobile bg-cover bg-center bg-no-repeat after:content-[&quot;&quot;] after:w-full after:h-full after:absolute after:top-0 after:left-0 after:right-0 after:bottom-0 after:z-10 after:bg-gradient-to-b from-[#0e0e0e]/70 via-[#0e0e0e]/70 to-[#0e0e0e]">
+      
       <div className="hidden sm:block w-full h-full absolute top-0 left-0 right-0 bottom-0">
         <video
           ref={videoRef}
@@ -42,12 +43,14 @@ export function Hero() {
       </div>
 
       <div className="relative z-20 w-full h-full px-6 flex flex-col justify-center sm:px-16 bg-hero-glows bg-no-repeat bg-contain bg-center lg:container lg:mx-auto">
+        
         <motion.div
           initial="initial"
           animate="animate"
           variants={ContainerAnimation}
           className="relative w-full flex flex-col items-center justify-center space-y-6 sm:items-center"
         >
+          
           <motion.div
             variants={TagAnimation}
             className="flex items-center justify-center space-x-1 bg-gold-primary/25 px-4 py-1 rounded-md cursor-default"
@@ -71,8 +74,9 @@ export function Hero() {
 
           <motion.div
             variants={SubTitleAnimation}
-            className="w-full overflow-hidden flex flex-col items-center justify-center space-y-2 sm:flex-row sm:space-y-0 sm:space-x-4 sm:before:content-[''] sm:before:h-[1px] sm:before:basis-full sm:before:bg-gold-primary sm:before:mr-4 after:content-[''] sm:after:h-[1px] sm:after:basis-full sm:after:bg-gold-primary sm:after:ml-4"
+            className="w-full overflow-hidden flex flex-col items-center justify-center space-y-2 sm:flex-row sm:space-y-0 sm:space-x-4 sm:before:content-[&quot;&quot;] sm:before:h-[1px] sm:before:basis-full sm:before:bg-gold-primary sm:before:mr-4 sm:after:content-[&quot;&quot;] sm:after:h-[1px] sm:after:basis-full sm:after:bg-gold-primary sm:after:ml-4"
           >
+            
             <motion.p
               variants={SubTitleItemAnimation}
               className="manrope-font text-light-primary text-base lg:text-xl"
@@ -103,6 +107,7 @@ export function Hero() {
             >
               Integrada ao Stand
             </motion.p>
+
           </motion.div>
         </motion.div>
       </div>
