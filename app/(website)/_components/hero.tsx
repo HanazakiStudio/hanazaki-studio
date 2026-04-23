@@ -26,7 +26,7 @@ export function Hero() {
   }, [videoRef]);
 
   return (
-    <section className="w-full h-screen relative bg-hero-mobile bg-cover bg-center bg-no-repeat after:content-[''] after:w-full after:h-full after:absolute after:top-0 after:left-0 after:right-0 after:bottom-0 after:z-10 after:bg-gradient-to-b from-[#0e0e0e]/60 via-[#0e0e0e]/90 to-[#0e0e0e]">
+    <section className="w-full h-screen relative bg-hero-mobile bg-cover bg-center bg-no-repeat after:content-[''] after:w-full after:h-full after:absolute after:top-0 after:left-0 after:right-0 after:bottom-0 after:z-10 after:bg-[#0e0e0e]/75">
       <div className="hidden sm:block w-full h-full absolute top-0 left-0 right-0 bottom-0">
         <video
           ref={videoRef}
@@ -107,7 +107,7 @@ export function Hero() {
 
           <motion.div
             variants={TagAnimation}
-            className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 pt-4"
+            className="flex items-center justify-center pt-4"
           >
             <a
               href="https://wa.me/5516997054012"
@@ -116,13 +116,6 @@ export function Hero() {
               className="poppins-font font-semibold text-sm sm:text-base bg-gold-primary text-[#0e0e0e] px-6 py-3 rounded-md hover:bg-gold-primary/90 transition-colors"
             >
               Falar no WhatsApp
-            </a>
-            <a
-              href="#projetos"
-              className="poppins-font font-semibold text-sm sm:text-base border border-gold-primary text-gold-primary px-6 py-3 rounded-md hover:bg-gold-primary/10 transition-colors flex items-center gap-1"
-            >
-              Ver projetos
-              <ArrowUpRight size={18} />
             </a>
           </motion.div>
         </motion.div>
