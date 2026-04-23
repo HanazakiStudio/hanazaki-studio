@@ -31,7 +31,7 @@ export function VideoModal({ isModalOpen, CloseModal }: VideoModalProps) {
           >
             <iframe
               className="absolute top-0 left-0 w-full h-full"
-              src="https://www.youtube.com/shorts/DT6hKqrgTrs"
+              src="https://www.youtube.com/embed/DT6hKqrgTrs?controls=1&modestbranding=1&rel=0"
               title="YouTube video player"
               frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
