@@ -27,6 +27,9 @@ export function Header() {
     location.hash = "#contact";
   }
 
+  const baseClass =
+    "relative poppins-font text-xl font-medium text-light-primary transition-all after:transition-all hover:after:w-full after:content-[''] after:!bg-offwhite-primary after:w-0 after:h-[2px] after:absolute after:bottom-0 after:left-0";
+
   return (
     <AnimatePresence initial={initialAnimation}>
       <header className="w-full px-6 py-6 flex items-center justify-between absolute top-0 left-1/2 -translate-x-1/2 z-40 sm:px-16 sm:py-9 lg:container lg:mx-auto">
@@ -60,13 +63,10 @@ export function Header() {
           {/* INICIO */}
           <Link
             href="/"
-            className={cn(
-              "relative poppins-font text-xl font-medium text-light-primary transition-all after:transition-all hover:after:w-full after:content-[''] after:bg-offwhite-primary after:w-0 after:h-[2px] after:absolute after:bottom-0 after:right-0",
-              {
-                "text-gold-primary after:bg-gold-primary after:w-full":
-                  pathname === "/",
-              }
-            )}
+            className={cn(baseClass, {
+              "text-gold-primary after:!bg-gold-primary after:w-full":
+                pathname === "/",
+            })}
           >
             Inicio
           </Link>
@@ -78,15 +78,12 @@ export function Header() {
               smooth
               offset={-100}
               duration={500}
-              className="cursor-pointer relative poppins-font text-xl font-medium text-light-primary transition-all after:transition-all hover:after:w-full after:content-[''] after:bg-offwhite-primary after:w-0 after:h-[2px] after:absolute after:bottom-0 after:right-0"
+              className={baseClass}
             >
               Projetos
             </LinkScroll>
           ) : (
-            <Link
-              href="/#projetos"
-              className="relative poppins-font text-xl font-medium text-light-primary transition-all after:transition-all hover:after:w-full after:content-[''] after:bg-offwhite-primary after:w-0 after:h-[2px] after:absolute after:bottom-0 after:right-0"
-            >
+            <Link href="/#projetos" className={baseClass}>
               Projetos
             </Link>
           )}
@@ -94,13 +91,10 @@ export function Header() {
           {/* SOBRE */}
           <Link
             href="/sobre"
-            className={cn(
-              "relative poppins-font text-xl font-medium text-light-primary transition-all after:transition-all hover:after:w-full after:content-[''] after:bg-offwhite-primary after:w-0 after:h-[2px] after:absolute after:bottom-0 after:right-0",
-              {
-                "text-gold-primary after:bg-gold-primary after:w-full":
-                  pathname === "/sobre",
-              }
-            )}
+            className={cn(baseClass, {
+              "text-gold-primary after:!bg-gold-primary after:w-full":
+                pathname === "/sobre",
+            })}
           >
             Sobre
           </Link>
