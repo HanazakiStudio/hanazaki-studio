@@ -50,7 +50,7 @@ export function Header() {
 
         <MobileMenu />
 
-        {/* MENU DESKTOP */}
+        {/* MENU */}
         <motion.nav
           initial="initial"
           animate="animate"
@@ -85,19 +85,28 @@ export function Header() {
             Sobre
           </Link>
 
-          {/* PROJETOS (ÂNCORA) */}
-          <LinkScroll
-            to="projetos"
-            smooth
-            offset={-100}
-            duration={500}
-            className="cursor-pointer relative poppins-font text-xl font-medium text-light-primary transition-all after:transition-all hover:after:w-full after:content-[''] after:bg-light-primary after:w-0 after:h-[1px] after:absolute after:bottom-0 after:right-0"
-          >
-            Projetos
-          </LinkScroll>
+          {/* PROJETOS (INTELIGENTE) */}
+          {pathname === "/" ? (
+            <LinkScroll
+              to="projetos"
+              smooth
+              offset={-100}
+              duration={500}
+              className="cursor-pointer relative poppins-font text-xl font-medium text-light-primary transition-all after:transition-all hover:after:w-full after:content-[''] after:bg-light-primary after:w-0 after:h-[1px] after:absolute after:bottom-0 after:right-0"
+            >
+              Projetos
+            </LinkScroll>
+          ) : (
+            <Link
+              href="/#projetos"
+              className="relative poppins-font text-xl font-medium text-light-primary transition-all after:transition-all hover:after:w-full after:content-[''] after:bg-light-primary after:w-0 after:h-[1px] after:absolute after:bottom-0 after:right-0"
+            >
+              Projetos
+            </Link>
+          )}
         </motion.nav>
 
-        {/* BOTÃO CONTATO */}
+        {/* CONTATO */}
         <LinkScroll
           to="contact"
           smooth
