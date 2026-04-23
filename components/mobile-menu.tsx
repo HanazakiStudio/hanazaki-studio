@@ -28,7 +28,6 @@ export function MobileMenu() {
 
   function handleCloseMenu() {
     setIsMenuOpen(false);
-
     disableMouse();
   }
 
@@ -41,6 +40,25 @@ export function MobileMenu() {
         smooth: "easeInOutCubic",
       });
     }, 1000);
+  }
+
+  // 🔥 NOVO: PROJETOS INTELIGENTE
+  function handleProjetos() {
+    handleCloseMenu();
+    disableMouse();
+
+    if (pathname === "/") {
+      setTimeout(() => {
+        scroller.scrollTo("projetos", {
+          smooth: "easeInOutCubic",
+          offset: -100,
+        });
+      }, 1000);
+    } else {
+      setTimeout(() => {
+        window.location.href = "/#projetos";
+      }, 500);
+    }
   }
 
   function disableMouse() {
@@ -93,6 +111,8 @@ export function MobileMenu() {
               </div>
 
               <div className="flex flex-1 w-full flex-col items-center justify-center space-y-9 sm:space-y-12">
+                
+                {/* INICIO */}
                 <motion.div variants={MobileLinksAnimation}>
                   <Link
                     href="/"
@@ -102,8 +122,6 @@ export function MobileMenu() {
                       {
                         "text-gold-primary before:content-[''] before:w-3 before:h-[1px] before:bg-gold-primary before:absolute before:top-1/2 before:-left-4 after:content-[''] after:w-3 after:h-[1px] after:bg-gold-primary after:absolute after:top-1/2 after:-right-4":
                           pathname === "/",
-                      },
-                      {
                         "pointer-events-none": isAnimating,
                       }
                     )}
@@ -112,6 +130,18 @@ export function MobileMenu() {
                   </Link>
                 </motion.div>
 
+                {/* PROJETOS */}
+                <motion.div variants={MobileLinksAnimation}>
+                  <button
+                    onClick={handleProjetos}
+                    disabled={isAnimating}
+                    className="poppins-font text-white text-2xl font-medium text-center transition-colors relative sm:text-3xl disabled:opacity-100"
+                  >
+                    Projetos
+                  </button>
+                </motion.div>
+
+                {/* SOBRE */}
                 <motion.div variants={MobileLinksAnimation}>
                   <Link
                     href="/sobre"
@@ -121,8 +151,6 @@ export function MobileMenu() {
                       {
                         "text-gold-primary before:content-[''] before:w-3 before:h-[1px] before:bg-gold-primary before:absolute before:top-1/2 before:-left-4 after:content-[''] after:w-3 after:h-[1px] after:bg-gold-primary after:absolute after:top-1/2 after:-right-4":
                           pathname === "/sobre",
-                      },
-                      {
                         "pointer-events-none": isAnimating,
                       }
                     )}
@@ -131,41 +159,18 @@ export function MobileMenu() {
                   </Link>
                 </motion.div>
 
-                {/* <motion.div variants={MobileLinksAnimation}>
-                  <Link
-                    href="/projetos"
-                    className={cn(
-                      "poppins-font text-white text-2xl font-medium text-center transition-colors relative sm:text-3xl",
-                      {
-                        "text-gold-primary before:content-[''] before:w-3 before:h-[1px] before:bg-gold-primary before:absolute before:top-1/2 before:-left-4 after:content-[''] after:w-3 after:h-[1px] after:bg-gold-primary after:absolute after:top-1/2 after:-right-4":
-                          pathname === "/projetos",
-                      },
-                      {
-                        "pointer-events-none": isAnimating
-                      }
-                    )}
-                  >
-                    Projetos
-                  </Link>
-                </motion.div> */}
-
-                {/* TODO confirmar se o botão contato vai jogar para o footer */}
+                {/* CONTATO */}
                 <motion.div variants={MobileLinksAnimation}>
                   <Button
                     disabled={isAnimating}
                     onClick={handleContact}
                     variant="link"
-                    className={cn(
-                      "no-underline poppins-font text-white text-2xl font-medium text-center transition-colors relative sm:text-3xl disabled:opacity-100",
-                      {
-                        "text-gold-primary before:content-[''] before:w-3 before:h-[1px] before:bg-gold-primary before:absolute before:top-1/2 before:-left-4 after:content-[''] after:w-3 after:h-[1px] after:bg-gold-primary after:absolute after:top-1/2 after:-right-4":
-                          pathname === "/contato",
-                      }
-                    )}
+                    className="no-underline poppins-font text-white text-2xl font-medium text-center transition-colors relative sm:text-3xl disabled:opacity-100"
                   >
                     Contato
                   </Button>
                 </motion.div>
+
               </div>
             </div>
           </motion.div>
