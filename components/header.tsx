@@ -106,7 +106,7 @@ export function Header() {
           smooth
           offset={50}
           onClick={handleContact}
-          className="cursor-pointer bg-transparent hover:bg-transparent poppins-font text-lg font-medium text-light-primary px-6 py-1 border-2 border-light-primary rounded-md transition-solors hover:border-gold-primary hover:text-gold-primary hidden lg:flex"
+          className="cursor-pointer bg-transparent hover:bg-transparent poppins-font text-lg font-medium text-light-primary px-6 py-1 border-2 border-light-primary rounded-md transition-colors hover:border-gold-primary hover:text-gold-primary hidden lg:flex"
         >
           Contato
         </LinkScroll>
