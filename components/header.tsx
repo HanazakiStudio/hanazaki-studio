@@ -52,59 +52,59 @@ export function Header() {
 
         {/* MENU */}
         <motion.nav
-          initial="initial"
-          animate="animate"
-          variants={MenuAnimation}
-          className="hidden lg:flex items-center justify-end gap-x-12"
-        >
-          {/* INICIO */}
-          <Link
-            href="/"
-            className={cn(
-              "relative poppins-font text-xl font-medium text-light-primary transition-all after:transition-all hover:after:w-full after:content-[''] after:bg-light-primary after:w-0 after:h-[1px] after:absolute after:bottom-0 after:right-0",
-              {
-                "text-gold-primary after:bg-gold-primary after:w-full":
-                  pathname === "/",
-              }
-            )}
-          >
-            Inicio
-          </Link>
+   initial="initial"
+  animate="animate"
+  variants={MenuAnimation}
+  className="hidden lg:flex items-center justify-end gap-x-12"
+>
+  {/* INICIO */}
+  <Link
+    href="/"
+    className={cn(
+      "relative poppins-font text-xl font-medium text-light-primary transition-all after:transition-all hover:after:w-full after:content-[''] after:bg-[#F5F5F5] after:w-0 after:h-[2px] after:absolute after:bottom-0 after:right-0",
+      {
+        "text-gold-primary after:bg-gold-primary after:w-full":
+          pathname === "/",
+      }
+    )}
+  >
+    Inicio
+  </Link>
 
-          {/* SOBRE */}
-          <Link
-            href="/sobre"
-            className={cn(
-              "relative poppins-font text-xl font-medium text-light-primary transition-all after:transition-all hover:after:w-full after:content-[''] after:bg-light-primary after:w-0 after:h-[1px] after:absolute after:bottom-0 after:right-0",
-              {
-                "text-gold-primary after:bg-gold-primary after:w-full":
-                  pathname === "/sobre",
-              }
-            )}
-          >
-            Sobre
-          </Link>
+  {/* PROJETOS */}
+  {pathname === "/" ? (
+    <LinkScroll
+      to="projetos"
+      smooth
+      offset={-100}
+      duration={500}
+      className="cursor-pointer relative poppins-font text-xl font-medium text-light-primary transition-all after:transition-all hover:after:w-full after:content-[''] after:bg-[#F5F5F5] after:w-0 after:h-[2px] after:absolute after:bottom-0 after:right-0"
+    >
+      Projetos
+    </LinkScroll>
+  ) : (
+    <Link
+      href="/#projetos"
+      className="relative poppins-font text-xl font-medium text-light-primary transition-all after:transition-all hover:after:w-full after:content-[''] after:bg-[#F5F5F5] after:w-0 after:h-[2px] after:absolute after:bottom-0 after:right-0"
+    >
+      Projetos
+    </Link>
+  )}
 
-          {/* PROJETOS (INTELIGENTE) */}
-          {pathname === "/" ? (
-            <LinkScroll
-              to="projetos"
-              smooth
-              offset={-100}
-              duration={500}
-              className="cursor-pointer relative poppins-font text-xl font-medium text-light-primary transition-all after:transition-all hover:after:w-full after:content-[''] after:bg-light-primary after:w-0 after:h-[1px] after:absolute after:bottom-0 after:right-0"
-            >
-              Projetos
-            </LinkScroll>
-          ) : (
-            <Link
-              href="/#projetos"
-              className="relative poppins-font text-xl font-medium text-light-primary transition-all after:transition-all hover:after:w-full after:content-[''] after:bg-light-primary after:w-0 after:h-[1px] after:absolute after:bottom-0 after:right-0"
-            >
-              Projetos
-            </Link>
-          )}
-        </motion.nav>
+  {/* SOBRE */}
+  <Link
+    href="/sobre"
+    className={cn(
+      "relative poppins-font text-xl font-medium text-light-primary transition-all after:transition-all hover:after:w-full after:content-[''] after:bg-[#F5F5F5] after:w-0 after:h-[2px] after:absolute after:bottom-0 after:right-0",
+      {
+        "text-gold-primary after:bg-gold-primary after:w-full":
+          pathname === "/sobre",
+      }
+    )}
+  >
+    Sobre
+  </Link>
+</motion.nav>
 
         {/* CONTATO */}
         <LinkScroll
