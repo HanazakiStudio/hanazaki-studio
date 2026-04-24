@@ -52,7 +52,7 @@ export function LogosBanner() {
           alt="Chicago Build 2026 Expo"
           fill
           sizes="(max-width: 640px) 112px, (max-width: 1024px) 144px, 192px"
-          className="object-contain object-center brightness-0 invert opacity-80"
+          className="object-contain object-center"
         />
       </motion.div>
     </motion.section>
