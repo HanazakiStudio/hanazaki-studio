@@ -19,40 +19,40 @@ export function LogosBanner() {
     >
       <motion.div
         variants={TradesAnimation}
-        className="relative h-12 w-28 sm:h-16 sm:w-36 lg:h-20 lg:w-48"
+        className="relative h-12 w-28 sm:h-16 sm:w-36 lg:h-20 lg:w-48 group"
       >
         <Image
           src="/images/dkc.png"
           alt="DKC"
           fill
           sizes="(max-width: 640px) 112px, (max-width: 1024px) 144px, 192px"
-          className="object-contain object-center brightness-0 invert opacity-80"
+          className="object-contain object-center opacity-70 group-hover:opacity-100 group-hover:scale-105 transition-all duration-300"
         />
       </motion.div>
 
       <motion.div
         variants={TradesAnimation}
-        className="relative h-12 w-28 sm:h-16 sm:w-36 lg:h-20 lg:w-48"
+        className="relative h-12 w-28 sm:h-16 sm:w-36 lg:h-20 lg:w-48 group"
       >
         <Image
           src="/images/gvc.svg"
           alt="GVC"
           fill
           sizes="(max-width: 640px) 112px, (max-width: 1024px) 144px, 192px"
-          className="object-contain object-center brightness-0 invert opacity-80"
+          className="object-contain object-center opacity-70 group-hover:opacity-100 group-hover:scale-105 transition-all duration-300"
         />
       </motion.div>
 
       <motion.div
         variants={TradesAnimation}
-        className="relative h-12 w-28 sm:h-16 sm:w-36 lg:h-20 lg:w-48"
+        className="relative h-12 w-28 sm:h-16 sm:w-36 lg:h-20 lg:w-48 group"
       >
         <Image
           src="/images/chicago-2025.png"
           alt="Chicago Build 2026 Expo"
           fill
           sizes="(max-width: 640px) 112px, (max-width: 1024px) 144px, 192px"
-          className="object-contain object-center"
+          className="object-contain object-center opacity-70 group-hover:opacity-100 group-hover:scale-105 transition-all duration-300"
         />
       </motion.div>
     </motion.section>
