@@ -17,37 +17,35 @@ export function About() {
     >
       <div className="w-full bg-gray-secondary flex flex-col items-center space-y-4 px-6 py-9 rounded-lg sm:pl-12 sm:pr-60 sm:items-start sm:bg-about-logo sm:bg-no-repeat sm:bg-[100%_100%] lg:pr-96">
         <h2 className="poppins-font font-medium text-gold-primary text-xl text-center sm:text-3xl sm:text-left lg:text-4xl">
-          Hanazaki Studio
+          Um estúdio, um fundador, um foco.
         </h2>
 
         <div className="flex flex-col gap-4">
           <p className="lg:hidden manrope-font text-base text-light-primary text-center sm:text-left sm:text-lg">
-            Nossa equipe busca estar sempre atualizada com as tendências e
-            novidades do mercado, para oferecer aos nossos clientes as melhores
-            soluções em visualização arquitetônica.
+            A Hanazaki Studio nasceu em 2024 da decisão de Leonardo Hanazaki
+            de sair da visualização arquitetônica fotorrealista e migrar para
+            o interativo.
           </p>
 
           <p className="lg:hidden manrope-font text-base text-light-primary text-center sm:text-left sm:text-lg">
-            Nossos serviços são únicos e personalizados para cada cliente, com o
-            objetivo de atender às suas principais exigências e alcançar suas
-            metas.
+            A razão foi simples: imagem não vende mais sozinha — experiência
+            sim.
           </p>
 
           <p className="lg:hidden manrope-font text-base text-light-primary text-center sm:text-left sm:text-lg">
-            Venha conhecer as soluções que a Hanazaki Studio pode oferecer para
-            o seu empreendimento, alavanque suas vendas e conquiste seus
-            clientes.
+            Hoje o estúdio trabalha exclusivamente com incorporadoras de alto
+            padrão, desenvolvendo salas imersivas e totens interativos em
+            Unreal Engine para stands de lançamento.
           </p>
         </div>
 
         <p className="hidden lg:block manrope-font text-base text-light-primary text-center sm:text-left sm:text-lg">
-          Nossa equipe busca estar sempre atualizada com as tendências e
-          novidades do mercado, para oferecer aos nossos clientes as melhores
-          soluções em visualização arquitetônica. Nossos serviços são únicos e
-          personalizados para cada cliente, com o objetivo de atender às suas
-          principais exigências e alcançar suas metas. Venha conhecer as
-          soluções que a Hanazaki Studio pode oferecer para o seu
-          empreendimento, alavanque suas vendas e conquiste seus clientes.
+          A Hanazaki Studio nasceu em 2024 da decisão de Leonardo Hanazaki de
+          sair da visualização arquitetônica fotorrealista e migrar para o
+          interativo. A razão foi simples: imagem não vende mais sozinha —
+          experiência sim. Hoje o estúdio trabalha exclusivamente com
+          incorporadoras de alto padrão, desenvolvendo salas imersivas e
+          totens interativos em Unreal Engine para stands de lançamento.
         </p>
 
         <Link
