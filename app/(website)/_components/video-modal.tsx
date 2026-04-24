@@ -27,7 +27,7 @@ export function VideoModal({ isModalOpen, CloseModal }: VideoModalProps) {
             animate="animate"
             exit="exit"
             variants={modalAnimation}
-            className="relative max-w-[90vw] max-h-[85vh] aspect-[9/16] bg-gray-primary rounded-2xl inline-block align-middle overflow-hidden"
+            className="relative w-[min(90vw,calc(85vh*9/16))] aspect-[9/16] bg-gray-primary rounded-2xl inline-block align-middle overflow-hidden"
           >
             <iframe
               className="absolute top-0 left-0 w-full h-full"
