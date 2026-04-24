@@ -27,11 +27,11 @@ export function VideoModal({ isModalOpen, CloseModal }: VideoModalProps) {
             animate="animate"
             exit="exit"
             variants={modalAnimation}
-            className="relative w-full max-w-[1000px] max-h-[567.16px] pt-[56.66%] lg:pt-[567.16px] bg-gray-primary rounded-2xl inline-block align-middle overflow-hidden"
+            className="relative max-w-[90vw] max-h-[85vh] aspect-[9/16] bg-gray-primary rounded-2xl inline-block align-middle overflow-hidden"
           >
             <iframe
               className="absolute top-0 left-0 w-full h-full"
-              src="https://www.youtube.com/embed/DT6hKqrgTrs?controls=1&modestbranding=1&rel=0"
+              src="https://www.youtube.com/embed/cnth-cB5GWs?controls=1&modestbranding=1&rel=0&playsinline=1"
               title="YouTube video player"
               frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
