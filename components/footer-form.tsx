@@ -19,7 +19,6 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { useState } from "react";
-import { Axis3DIcon } from "lucide-react";
 
 export function FooterForm() {
   const [isSending, setIsSending] = useState<boolean>(false);
@@ -33,28 +32,27 @@ export function FooterForm() {
     },
   });
 
-  function onSubmit(values: z.infer<typeof footerFormSchema>) {
-    setIsSending(true);
+  async function onSubmit(values: z.infer<typeof footerFormSchema>) {
+    try {
+      setIsSending(true);
 
-    axios
-      .post("/api/send-email", values)
-      .then((res) => {
-        toast.success(res.data.message);
-        form.reset();
-      })
-      .catch((error) => {
-        toast.error(
-          "Ocorreu um erro no envio da mensagem, tente novamente mais tarde"
-        );
-        console.error(error);
-      })
-      .finally(() => setIsSending(false));
+      const res = await axios.post("/api/send-email", values);
+
+      toast.success(res.data.message || "Mensagem enviada com sucesso!");
+      form.reset();
+    } catch (error) {
+      toast.error("Erro ao enviar. Tente novamente.");
+      console.error(error);
+    } finally {
+      setIsSending(false);
+    }
   }
 
   return (
     <Form {...form}>
       <Element name="contact" className="mb-4 w-full max-w-md sm:mb-0">
         <form onSubmit={form.handleSubmit(onSubmit)}>
+          
           <FormField
             control={form.control}
             name="name"
@@ -63,11 +61,9 @@ export function FooterForm() {
                 <FormLabel className="poppins-font text-base font-medium text-light-primary">
                   Nome
                 </FormLabel>
-
                 <FormControl>
                   <Input disabled={isSending} {...field} />
                 </FormControl>
-
                 <FormMessage className="poppins-font text-sm" />
               </FormItem>
             )}
@@ -81,11 +77,9 @@ export function FooterForm() {
                 <FormLabel className="poppins-font text-base font-medium text-light-primary">
                   E-mail
                 </FormLabel>
-
                 <FormControl>
                   <Input disabled={isSending} {...field} />
                 </FormControl>
-
                 <FormMessage className="poppins-font text-sm" />
               </FormItem>
             )}
@@ -99,23 +93,31 @@ export function FooterForm() {
                 <FormLabel className="poppins-font text-base font-medium text-light-primary">
                   Mensagem
                 </FormLabel>
-
                 <FormControl>
                   <Input disabled={isSending} {...field} />
                 </FormControl>
-
                 <FormMessage className="poppins-font text-sm" />
               </FormItem>
             )}
           />
 
-          <Button
-            type="submit"
-            disabled={isSending}
-            className="block mx-auto poppins-font text-base font-bold"
-          >
-            {isSending ? <>Enviando</> : <>Enviar</>}
-          </Button>
+          {/* BOTÃO PREMIUM */}
+          <div className="flex justify-center">
+            <button
+              type="submit"
+              disabled={isSending}
+              className="relative overflow-hidden poppins-font font-semibold text-sm sm:text-base bg-gold-primary text-[#0e0e0e] px-6 py-3 rounded-md group disabled:opacity-70"
+            >
+              <span className="relative z-10">
+                {isSending ? "Enviando..." : "Enviar mensagem"}
+              </span>
+
+              <span className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <span className="absolute top-0 left-[-100%] w-full h-full bg-gradient-to-r from-transparent via-white/30 to-transparent skew-x-[-20deg] group-hover:left-[100%] transition-all duration-700" />
+              </span>
+            </button>
+          </div>
+
         </form>
       </Element>
     </Form>
