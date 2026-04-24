@@ -1,4 +1,3 @@
-
 "use client";
 
 import Image from "next/image";
@@ -16,44 +15,44 @@ export function LogosBanner() {
       whileInView="animate"
       viewport={{ once: true, amount: 0.3 }}
       variants={ContainerAnimation}
-      className="w-full bg-gray-secondary px-6 sm:px-16 py-6 sm:py-8 lg:py-10 mt-12 sm:mt-16 flex items-center justify-around"
+      className="w-full px-6 sm:px-16 py-12 sm:py-16 lg:py-20 flex items-center justify-around gap-6 sm:gap-10"
     >
       <motion.div
         variants={TradesAnimation}
-        className="relative h-8 w-20 sm:h-12 sm:w-28 lg:h-16 lg:w-40"
+        className="relative h-12 w-28 sm:h-16 sm:w-36 lg:h-20 lg:w-48"
       >
         <Image
           src="/images/dkc.png"
           alt="DKC"
           fill
-          sizes="(max-width: 640px) 80px, (max-width: 1024px) 112px, 160px"
-          className="object-contain object-center"
+          sizes="(max-width: 640px) 112px, (max-width: 1024px) 144px, 192px"
+          className="object-contain object-center brightness-0 invert opacity-80"
         />
       </motion.div>
 
       <motion.div
         variants={TradesAnimation}
-        className="relative h-8 w-20 sm:h-12 sm:w-28 lg:h-16 lg:w-40"
+        className="relative h-12 w-28 sm:h-16 sm:w-36 lg:h-20 lg:w-48"
       >
         <Image
           src="/images/gvc.svg"
           alt="GVC"
           fill
-          sizes="(max-width: 640px) 80px, (max-width: 1024px) 112px, 160px"
-          className="object-contain object-center"
+          sizes="(max-width: 640px) 112px, (max-width: 1024px) 144px, 192px"
+          className="object-contain object-center brightness-0 invert opacity-80"
         />
       </motion.div>
 
       <motion.div
         variants={TradesAnimation}
-        className="relative h-8 w-20 sm:h-12 sm:w-28 lg:h-16 lg:w-40"
+        className="relative h-12 w-28 sm:h-16 sm:w-36 lg:h-20 lg:w-48"
       >
         <Image
           src="/images/chicago-2025.png"
-          alt="Expo Build Chicago 2025"
+          alt="Chicago Build 2026 Expo"
           fill
-          sizes="(max-width: 640px) 80px, (max-width: 1024px) 112px, 160px"
-          className="object-contain object-center"
+          sizes="(max-width: 640px) 112px, (max-width: 1024px) 144px, 192px"
+          className="object-contain object-center brightness-0 invert opacity-80"
         />
       </motion.div>
     </motion.section>
