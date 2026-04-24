@@ -29,7 +29,7 @@ export function VideoAbout() {
     <>
       <VideoModal isModalOpen={isModalOpen} CloseModal={CloseModal} />
 
-      <section className="relative z-30 w-full h-[100vh] max-h-[920px] min-h-[420px] rounded-[30px] overflow-hidden flex items-center justify-center lg:rounded-[60px] after:content-[''] after:w-full after:h-full after:bg-gray-primary/40 after:absolute after:top-0 after:left-0 after:right-0 after:bottom-0 after:z-40">
+      <section className="relative z-30 w-full h-[60vh] max-h-[720px] min-h-[420px] rounded-[30px] overflow-hidden flex items-center justify-center lg:rounded-[60px] after:content-[''] after:w-full after:h-full after:bg-gray-primary/40 after:absolute after:top-0 after:left-0 after:right-0 after:bottom-0 after:z-40">
         
         {/* IMAGEM */}
         <Image
@@ -69,13 +69,23 @@ export function VideoAbout() {
             </strong>
           </motion.h2>
 
-          {/* PLAY */}
+          {/* PLAY COM EFEITO PREMIUM */}
           <motion.div variants={PlayAnimation}>
-            <PlayCircle
-              size="64px"
-              strokeWidth={1.4}
-              className="text-light-primary group-hover:text-gold-primary transition-colors duration-300"
-            />
+            <div className="relative group">
+              
+              {/* ÍCONE */}
+              <PlayCircle
+                size="64px"
+                strokeWidth={1.4}
+                className="text-light-primary group-hover:text-gold-primary transition-colors duration-300"
+              />
+
+              {/* SHEEN */}
+              <span className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <span className="absolute top-0 left-[-100%] w-full h-full bg-gradient-to-r from-transparent via-white/40 to-transparent skew-x-[-20deg] group-hover:left-[100%] transition-all duration-700" />
+              </span>
+
+            </div>
           </motion.div>
 
           {/* LINHA INFERIOR */}
