@@ -45,7 +45,6 @@ export function Footer() {
             text="@hanazaki_studio"
           />
 
-          {/* LINKEDIN CORRIGIDO */}
           <SocialMediaLink
             href="https://www.linkedin.com/company/hanazaki-studio/"
             alt="Linkedin"
@@ -56,7 +55,7 @@ export function Footer() {
       </div>
 
       {/* FOOTER BOTTOM */}
-      <div className="w-full mt-8 py-4 border-t border-light-primary px-6 flex flex-col space-y-4 items-center justify-center sm:px-16">
+      <div className="w-full mt-8 py-4 border-t border-light-primary px-6 flex items-center justify-start sm:px-16">
         
         <span className="poppins-font text-sm text-light-primary font-medium sm:text-lg">
           Hanazaki Studio ©2026
