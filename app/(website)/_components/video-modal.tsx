@@ -31,10 +31,10 @@ export function VideoModal({ isModalOpen, CloseModal }: VideoModalProps) {
           >
             <iframe
               className="absolute top-0 left-0 w-full h-full"
-              src="https://www.youtube-nocookie.com/embed/Sf0evttzJ_c?controls=1&modestbranding=1&rel=0&playsinline=1"
-              title="YouTube video player"
+              src="https://player.vimeo.com/video/1186260977?h=bb4ba16741&autoplay=1&title=0&byline=0&portrait=0"
+              title="Sala Imersiva Hanazaki Studio"
               frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
               referrerPolicy="strict-origin-when-cross-origin"
               allowFullScreen
             />
