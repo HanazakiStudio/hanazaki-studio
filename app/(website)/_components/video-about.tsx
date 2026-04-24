@@ -56,7 +56,7 @@ export function VideoAbout() {
             variants={TextAnimation}
             className="text-2xl text-center uppercase text-light-primary font-medium sm:text-5xl lg:text-6xl"
           >
-            Dê vida às <strong className="font-medium text-gold-primary">ideias</strong>
+            Por dentro da <strong className="font-medium text-gold-primary">sala imersiva</strong>
           </motion.h2>
 
           <motion.div variants={PlayAnimation}>
