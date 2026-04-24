@@ -29,7 +29,7 @@ export function VideoAbout() {
     <>
       <VideoModal isModalOpen={isModalOpen} CloseModal={CloseModal} />
 
-      <section className="relative z-30 w-full h-[60vh] max-h-[720px] min-h-[420px] rounded-[30px] overflow-hidden flex items-center justify-center lg:rounded-[60px] after:content-[''] after:w-full after:h-full after:bg-gray-primary/40 after:absolute after:top-0 after:left-0 after:right-0 after:bottom-0 after:z-40">
+      <section className="relative z-30 w-full h-[80vh] max-h-[800px] min-h-[420px] rounded-[30px] overflow-hidden flex items-center justify-center lg:rounded-[60px] after:content-[''] after:w-full after:h-full after:bg-gray-primary/40 after:absolute after:top-0 after:left-0 after:right-0 after:bottom-0 after:z-40">
         
         {/* IMAGEM */}
         <Image
