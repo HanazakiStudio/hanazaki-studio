@@ -54,7 +54,7 @@ export function VideoAbout() {
           {/* LINHA SUPERIOR */}
           <motion.div
             variants={LineAnimation}
-            className="w-full max-w-[220px] h-[2px] min-h-[2px] bg-gold-primary"
+            className="w-full max-w-[220px] h-[2px] min-h-[2px] bg-gold-primary origin-center"
           />
 
           {/* TEXTO */}
@@ -86,7 +86,7 @@ export function VideoAbout() {
           {/* LINHA INFERIOR */}
           <motion.div
             variants={LineAnimation}
-            className="w-full max-w-[220px] h-[2px] min-h-[2px] bg-gold-primary"
+            className="w-full max-w-[220px] h-[2px] min-h-[2px] bg-gold-primary origin-center"
           />
         </motion.div>
       </section>
