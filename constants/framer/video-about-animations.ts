@@ -5,8 +5,7 @@ export const ContainerAnimation = {
   animate: {
     opacity: 1,
     transition: {
-      duration: 0.4,
-      delayChildren: 0.3,
+      delayChildren: 0.5,
     },
   },
 };
@@ -18,8 +17,8 @@ export const LineAnimation = {
   animate: {
     scaleX: 1,
     transition: {
-      ease: "easeOut",
-      duration: 0.8,
+      ease: "circOut",
+      duration: 1.5,
     },
   },
 };
@@ -31,9 +30,9 @@ export const TextAnimation = {
   animate: {
     y: 0,
     transition: {
-      ease: "easeOut",
-      duration: 0.7,
-      delay: 0.5,
+      ease: "circOut",
+      duration: 1.5,
+      delay: 1,
     },
   },
 };
@@ -45,9 +44,9 @@ export const PlayAnimation = {
   animate: {
     y: 0,
     transition: {
-      ease: "easeOut",
-      duration: 0.7,
-      delay: 0.5,
+      ease: "circOut",
+      duration: 1.5,
+      delay: 1,
     },
   },
 };
