@@ -12,6 +12,7 @@ import {
   PlayAnimation,
   ContainerAnimation,
 } from "@/constants/framer/video-about-animations";
+
 import { VideoModal } from "./video-modal";
 
 export function VideoAbout() {
@@ -30,7 +31,6 @@ export function VideoAbout() {
       <VideoModal isModalOpen={isModalOpen} CloseModal={CloseModal} />
 
       <section className="relative z-30 w-full h-[100vh] max-h-[920px] min-h-[420px] rounded-[30px] overflow-hidden flex items-center justify-center lg:rounded-[60px] after:content-[''] after:w-full after:h-full after:bg-gray-primary/40 after:absolute after:top-0 after:left-0 after:right-0 after:bottom-0 after:z-40">
-        
         {/* IMAGEM */}
         <Image
           src={AboutImage}
@@ -47,15 +47,14 @@ export function VideoAbout() {
           onClick={OpenModal}
           initial="initial"
           whileInView="animate"
-          viewport={{ once: true, amount: 0.3 }}
+          viewport={{ once: true, amount: 0.4 }}
           variants={ContainerAnimation}
-          className="absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 z-50 flex flex-col space-y-6 items-center justify-center group cursor-pointer will-change-transform"
+          className="absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 z-50 flex flex-col space-y-6 items-center justify-center group cursor-pointer overflow-hidden"
         >
-          
           {/* LINHA SUPERIOR */}
           <motion.div
             variants={LineAnimation}
-            className="w-full max-w-[220px] h-[2px] bg-gold-primary origin-left"
+            className="w-full max-w-[220px] h-[2px] min-h-[2px] bg-gold-primary"
           />
 
           {/* TEXTO */}
@@ -69,13 +68,13 @@ export function VideoAbout() {
             </strong>
           </motion.h2>
 
-          {/* PLAY */}
+          {/* PLAY COM GLOW CIRCULAR */}
           <motion.div variants={PlayAnimation}>
-            <div className="relative flex items-center justify-center">
-              
+            <div className="relative group flex items-center justify-center">
               {/* GLOW */}
               <span className="absolute w-[90px] h-[90px] rounded-full bg-gold-primary opacity-0 blur-2xl group-hover:opacity-40 transition-all duration-500" />
 
+              {/* ÍCONE */}
               <PlayCircle
                 size="64px"
                 strokeWidth={1.4}
@@ -87,7 +86,7 @@ export function VideoAbout() {
           {/* LINHA INFERIOR */}
           <motion.div
             variants={LineAnimation}
-            className="w-full max-w-[220px] h-[2px] bg-gold-primary origin-right"
+            className="w-full max-w-[220px] h-[2px] min-h-[2px] bg-gold-primary"
           />
         </motion.div>
       </section>
