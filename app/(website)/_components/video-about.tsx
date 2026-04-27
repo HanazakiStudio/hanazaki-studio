@@ -47,21 +47,21 @@ export function VideoAbout() {
           onClick={OpenModal}
           initial="initial"
           whileInView="animate"
-          viewport={{ once: true, amount: 0.6 }}
+          viewport={{ once: true, amount: 0.3 }} // 🔥 CORRIGIDO
           variants={ContainerAnimation}
-          className="absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 z-50 flex flex-col space-y-6 items-center justify-center group cursor-pointer overflow-hidden will-change-transform"
+          className="absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 z-50 flex flex-col space-y-6 items-center justify-center group cursor-pointer will-change-transform"
         >
           
           {/* LINHA SUPERIOR */}
           <motion.div
             variants={LineAnimation}
-            className="w-full max-w-[220px] h-[2px] bg-gold-primary origin-left will-change-transform"
+            className="w-full max-w-[220px] h-[2px] bg-gold-primary origin-left"
           />
 
           {/* TEXTO */}
           <motion.h2
             variants={TextAnimation}
-            className="text-2xl text-center uppercase text-light-primary font-medium sm:text-5xl lg:text-6xl will-change-transform"
+            className="text-2xl text-center uppercase text-light-primary font-medium sm:text-5xl lg:text-6xl"
           >
             Por dentro da{" "}
             <strong className="font-medium text-gold-primary">
@@ -70,13 +70,12 @@ export function VideoAbout() {
           </motion.h2>
 
           {/* PLAY */}
-          <motion.div variants={PlayAnimation} className="will-change-transform">
+          <motion.div variants={PlayAnimation}>
             <div className="relative flex items-center justify-center">
               
               {/* GLOW */}
               <span className="absolute w-[90px] h-[90px] rounded-full bg-gold-primary opacity-0 blur-2xl group-hover:opacity-40 transition-all duration-500" />
 
-              {/* ÍCONE */}
               <PlayCircle
                 size="64px"
                 strokeWidth={1.4}
@@ -88,7 +87,7 @@ export function VideoAbout() {
           {/* LINHA INFERIOR */}
           <motion.div
             variants={LineAnimation}
-            className="w-full max-w-[220px] h-[2px] bg-gold-primary origin-right will-change-transform"
+            className="w-full max-w-[220px] h-[2px] bg-gold-primary origin-right"
           />
         </motion.div>
       </section>
