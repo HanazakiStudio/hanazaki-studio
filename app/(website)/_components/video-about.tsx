@@ -47,7 +47,7 @@ export function VideoAbout() {
           onClick={OpenModal}
           initial="initial"
           whileInView="animate"
-          viewport={{ once: true, amount: 0.3 }} // 🔥 CORRIGIDO
+          viewport={{ once: true, amount: 0.3 }}
           variants={ContainerAnimation}
           className="absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 z-50 flex flex-col space-y-6 items-center justify-center group cursor-pointer will-change-transform"
         >
