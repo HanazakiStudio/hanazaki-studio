@@ -47,9 +47,9 @@ export function VideoAbout() {
           onClick={OpenModal}
           initial="initial"
           whileInView="animate"
-          viewport={{ once: true, amount: 0.4 }}
+          viewport={{ once: true, amount: 0.6 }} // 🔥 AJUSTE AQUI
           variants={ContainerAnimation}
-          className="absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 z-50 flex flex-col space-y-6 items-center justify-center group cursor-pointer"
+          className="absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 z-50 flex flex-col space-y-6 items-center justify-center group cursor-pointer overflow-hidden" // 🔥 IMPORTANTE
         >
           
           {/* LINHA SUPERIOR */}
@@ -69,20 +69,18 @@ export function VideoAbout() {
             </strong>
           </motion.h2>
 
-          {/* PLAY COM GLOW CIRCULAR */}
+          {/* PLAY */}
           <motion.div variants={PlayAnimation}>
-            <div className="relative group flex items-center justify-center">
+            <div className="relative flex items-center justify-center">
               
-              {/* GLOW */}
+              {/* GLOW CORRETO */}
               <span className="absolute w-[90px] h-[90px] rounded-full bg-gold-primary opacity-0 blur-2xl group-hover:opacity-40 transition-all duration-500" />
 
-              {/* ÍCONE */}
               <PlayCircle
                 size="64px"
                 strokeWidth={1.4}
                 className="relative z-10 text-light-primary group-hover:text-gold-primary transition-all duration-300 group-hover:scale-110"
               />
-
             </div>
           </motion.div>
 
