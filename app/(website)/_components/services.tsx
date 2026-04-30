@@ -1,111 +1,250 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
+import { Store, Building2, Hand, Palette, Maximize2 } from "lucide-react";
 
-import { ServicesCard } from "./services-card";
 import {
   ServicesTitleAnimation,
   ServicesContainerAnimation,
 } from "@/constants/framer/services-animations";
 
-const ServicesData = [
-  {
-    title: "Totem Interativo",
-    desc: "Com nossos projetos em Totem Interativo, você pode oferecer uma experiência de interação única e atrativa para seus clientes.",
-    imageUrl: "/images/tv-touch.webp",
-    className: "sm:col-start-1 sm:col-end-3",
-    imageClassName: "!mb-4",
-    width: 512,
-    height: 288,
+// Animação para os pilares (entrada de baixo para cima com fade)
+const pillarAnimation = {
+  initial: { opacity: 0, y: 20 },
+  animate: { opacity: 1, y: 0 },
+};
+
+// Animação para as imagens dos cards (fade-in suave)
+const imageAnimation = {
+  initial: { opacity: 0 },
+  animate: { opacity: 1 },
+};
+
+// Container que orquestra os pilares com stagger
+const pillarsContainerAnimation = {
+  initial: {},
+  animate: {
+    transition: {
+      staggerChildren: 0.12,
+      delayChildren: 0.1,
+    },
   },
-  {
-    title: "Realidade Virtual",
-    desc: "Permita que seus clientes explorem e interajam com o empreendimento de forma imersiva e envolvente.",
-    imageUrl: "/images/vr.png",
-    className: "",
-    imageClassName: "!mb-4",
-    width: 512,
-    height: 288,
-  },
-  {
-    title: "Nuvem",
-    desc: "Nossos projetos na nuvem permitem que seus clientes acessem diretamente a partir de seus dispositivos.",
-    imageUrl: "/images/nuvem.png",
-    className: "",
-    imageClassName: "!mb-4",
-    width: 512,
-    height: 288,
-  },
-  {
-    title: "Projetos Externos",
-    desc: "Com os projetos externos, é possível visualizar o entorno e as comodidades do empreendimento, proporcionando uma visão completa do ambiente ao redor.",
-    imageUrl: "/images/projetos-externos.png",
-    className: "",
-    imageClassName: "!mb-4",
-    width: 512,
-    height: 288,
-  },
-  {
-    title: "Projetos Internos",
-    desc: "Os ambientes internos proporcionam aos clientes a chance de deslumbrar-se com o novo imóvel, juntamente com a opção de personalização.",
-    imageUrl: "/images/projetos-internos.png",
-    className: "",
-    imageClassName: "!mb-4",
-    width: 300,
-    height: 288,
-  },
-];
+};
 
 export function Services() {
-  const [services, setServices] = useState<typeof ServicesData>(ServicesData);
-
-  useEffect(() => {
-    if (window.innerWidth < 1024) {
-      const serv = [...services];
-
-      serv[0].imageUrl = "/images/totem.png";
-      serv[0].width = 300;
-
-      setServices(serv);
-    } else {
-      const serv = [...services];
-
-      serv[0].imageUrl = "/images/totem.webp";
-
-      setServices(serv);
-    }
-  }, []);
-
   return (
     <motion.section
       initial="initial"
       whileInView="animate"
-      viewport={{ once: true }}
+      viewport={{ once: true, amount: 0.15 }}
       variants={ServicesContainerAnimation}
-      className="w-full px-6 mt-12 flex flex-col items-center space-y-6 sm:px-16 lg:mt-24 lg:container lg:mx-auto"
+      className="w-full px-6 mt-12 flex flex-col items-center space-y-12 sm:px-16 lg:mt-24 lg:container lg:mx-auto lg:space-y-14"
     >
       <motion.h2
         variants={ServicesTitleAnimation}
         className="poppins-font text-gold-primary font-medium text-3xl text-center sm:text-4xl"
       >
-        Nossas Soluções
+        Por dentro da experiência
       </motion.h2>
 
-      <div className="w-full grid grid-cols-1 grid-rows-[repeat(5,auto)] gap-4 sm:grid-cols-2 sm:grid-rows-[repeat(3,auto)] lg:grid-rows-[repeat(2,auto)] lg:grid-cols-3">
-        {services.map((service, index) => (
-          <ServicesCard
-            key={index}
-            title={service.title}
-            desc={service.desc}
-            imageUrl={service.imageUrl}
-            className={service.className}
-            imageClassName={service.imageClassName}
-            width={service.width}
-            height={service.height}
+      {/* Card grande — Sala Imersiva (sem título de produto) */}
+      <motion.div
+        initial="initial"
+        whileInView="animate"
+        viewport={{ once: true, amount: 0.2 }}
+        variants={pillarsContainerAnimation}
+        className="w-full bg-white/[0.03] border border-white/[0.06] rounded-2xl p-5 sm:p-6 lg:p-8 flex flex-col lg:flex-row gap-6 lg:gap-10 items-center"
+      >
+        <motion.div
+          variants={imageAnimation}
+          transition={{ duration: 0.6 }}
+          className="w-full lg:w-3/5 relative aspect-video rounded-xl overflow-hidden"
+        >
+          <Image
+            src="/images/sala-imersiva.webp"
+            alt="Sala imersiva da Hanazaki Studio em stand de vendas"
+            fill
+            className="object-cover"
+            sizes="(max-width: 1024px) 100vw, 60vw"
           />
-        ))}
-      </div>
+        </motion.div>
+
+        <div className="w-full lg:w-2/5 flex flex-col gap-6 lg:gap-7">
+          {/* Integrada ao stand */}
+          <motion.div
+            variants={pillarAnimation}
+            transition={{ duration: 0.5 }}
+            className="flex gap-4 items-start"
+          >
+            <div className="flex-shrink-0 mt-0.5">
+              <Store
+                className="w-8 h-8 text-gold-primary"
+                strokeWidth={1.5}
+              />
+            </div>
+            <div className="flex flex-col gap-1.5">
+              <h3 className="poppins-font text-gold-primary font-semibold text-lg leading-tight">
+                Integrada ao stand
+              </h3>
+              <p className="text-offwhite-primary text-sm leading-relaxed">
+                Adaptada ao espaço do seu stand de vendas, com hardware e
+                conteúdo desenvolvidos sob medida para o seu lançamento.
+              </p>
+            </div>
+          </motion.div>
+
+          {/* Exterior + Interior */}
+          <motion.div
+            variants={pillarAnimation}
+            transition={{ duration: 0.5 }}
+            className="flex gap-4 items-start"
+          >
+            <div className="flex-shrink-0 mt-0.5">
+              <Building2
+                className="w-8 h-8 text-gold-primary"
+                strokeWidth={1.5}
+              />
+            </div>
+            <div className="flex flex-col gap-1.5">
+              <h3 className="poppins-font text-gold-primary font-semibold text-lg leading-tight">
+                Exterior + Interior
+              </h3>
+              <p className="text-offwhite-primary text-sm leading-relaxed">
+                Do entorno do empreendimento ao interior dos apartamentos, num
+                único passeio interativo.
+              </p>
+            </div>
+          </motion.div>
+
+          {/* Unreal Engine em tempo real */}
+          <motion.div
+            variants={pillarAnimation}
+            transition={{ duration: 0.5 }}
+            className="flex gap-4 items-start"
+          >
+            <div className="flex-shrink-0 mt-0.5 relative w-8 h-8">
+              <Image
+                src="/images/unreal-engine.svg"
+                alt=""
+                fill
+                className="object-contain"
+              />
+            </div>
+            <div className="flex flex-col gap-1.5">
+              <h3 className="poppins-font text-gold-primary font-semibold text-lg leading-tight">
+                Unreal Engine em tempo real
+              </h3>
+              <p className="text-offwhite-primary text-sm leading-relaxed">
+                Sem vídeo pré-renderizado. O cliente conduz a apresentação, na
+                hora.
+              </p>
+            </div>
+          </motion.div>
+        </div>
+      </motion.div>
+
+      {/* Card grande — Totem Interativo (mesma largura, imagem menor) */}
+      <motion.div
+        initial="initial"
+        whileInView="animate"
+        viewport={{ once: true, amount: 0.2 }}
+        variants={pillarsContainerAnimation}
+        className="w-full bg-white/[0.03] border border-white/[0.06] rounded-2xl p-5 sm:p-6 lg:p-8 flex flex-col lg:flex-row gap-6 lg:gap-10 items-center"
+      >
+        <motion.div
+          variants={imageAnimation}
+          transition={{ duration: 0.6 }}
+          className="w-full lg:w-[45%] relative aspect-video rounded-xl overflow-hidden"
+        >
+          <Image
+            src="/images/totem.webp"
+            alt="Totem interativo touchscreen da Hanazaki Studio"
+            fill
+            className="object-contain"
+            sizes="(max-width: 1024px) 100vw, 45vw"
+          />
+        </motion.div>
+
+        <div className="w-full lg:w-[55%] flex flex-col gap-6 lg:gap-7">
+          {/* Título do produto */}
+          <motion.h3
+            variants={pillarAnimation}
+            transition={{ duration: 0.5 }}
+            className="poppins-font text-gold-primary font-medium text-2xl sm:text-[1.625rem]"
+          >
+            Totem Interativo
+          </motion.h3>
+
+          {/* Touch */}
+          <motion.div
+            variants={pillarAnimation}
+            transition={{ duration: 0.5 }}
+            className="flex gap-4 items-start"
+          >
+            <div className="flex-shrink-0 mt-0.5">
+              <Hand
+                className="w-8 h-8 text-gold-primary"
+                strokeWidth={1.5}
+              />
+            </div>
+            <div className="flex flex-col gap-1.5">
+              <h4 className="poppins-font text-gold-primary font-semibold text-lg leading-tight">
+                Touch
+              </h4>
+              <p className="text-offwhite-primary text-sm leading-relaxed">
+                Interação direta na tela.
+              </p>
+            </div>
+          </motion.div>
+
+          {/* Interface customizada */}
+          <motion.div
+            variants={pillarAnimation}
+            transition={{ duration: 0.5 }}
+            className="flex gap-4 items-start"
+          >
+            <div className="flex-shrink-0 mt-0.5">
+              <Palette
+                className="w-8 h-8 text-gold-primary"
+                strokeWidth={1.5}
+              />
+            </div>
+            <div className="flex flex-col gap-1.5">
+              <h4 className="poppins-font text-gold-primary font-semibold text-lg leading-tight">
+                Interface customizada
+              </h4>
+              <p className="text-offwhite-primary text-sm leading-relaxed">
+                Desenvolvida exclusivamente para cada empreendimento, seguindo
+                a identidade visual do projeto.
+              </p>
+            </div>
+          </motion.div>
+
+          {/* Versátil */}
+          <motion.div
+            variants={pillarAnimation}
+            transition={{ duration: 0.5 }}
+            className="flex gap-4 items-start"
+          >
+            <div className="flex-shrink-0 mt-0.5">
+              <Maximize2
+                className="w-8 h-8 text-gold-primary"
+                strokeWidth={1.5}
+              />
+            </div>
+            <div className="flex flex-col gap-1.5">
+              <h4 className="poppins-font text-gold-primary font-semibold text-lg leading-tight">
+                Versátil
+              </h4>
+              <p className="text-offwhite-primary text-sm leading-relaxed">
+                Adapta-se a qualquer espaço do stand, com flexibilidade de uso
+                e instalação.
+              </p>
+            </div>
+          </motion.div>
+        </div>
+      </motion.div>
     </motion.section>
   );
 }
