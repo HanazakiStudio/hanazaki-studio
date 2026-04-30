@@ -51,7 +51,9 @@ export function Services() {
                 Integrada ao stand
               </h3>
               <p className="text-offwhite-primary text-sm leading-relaxed">
-                Desenhada com o arquiteto desde o projeto, não colada depois.
+                Projetada para encaixar no espaço do seu stand. Hardware,
+                conteúdo e fluxo de visita pensados sob medida para o seu
+                lançamento.
               </p>
             </div>
           </div>
@@ -69,8 +71,8 @@ export function Services() {
                 Exterior + Interior
               </h3>
               <p className="text-offwhite-primary text-sm leading-relaxed">
-                Do entorno urbano ao acabamento dos ambientes, num único
-                ambiente imersivo.
+                Sobrevoo do entorno e entrada nos apartamentos para explorar
+                acabamentos e vistas, na mesma experiência.
               </p>
             </div>
           </div>
@@ -98,26 +100,26 @@ export function Services() {
         </div>
       </div>
 
-      {/* Card menor — Totem Interativo */}
-      <div className="w-full lg:w-[80%] bg-white/[0.03] border border-white/[0.06] rounded-2xl p-5 sm:p-6 lg:p-8 flex flex-col sm:flex-row gap-5 sm:gap-8 items-center">
-        <div className="w-full sm:w-2/5 relative aspect-[4/3] rounded-xl overflow-hidden">
+      {/* Card grande — Totem Interativo (mesma largura da Sala) */}
+      <div className="w-full bg-white/[0.03] border border-white/[0.06] rounded-2xl p-5 sm:p-6 lg:p-8 flex flex-col lg:flex-row gap-6 lg:gap-10 items-center">
+        <div className="w-full lg:w-3/5 relative aspect-video rounded-xl overflow-hidden">
           <Image
-            src="/images/tv-touch.webp"
+            src="/images/totem.webp"
             alt="Totem interativo touchscreen da Hanazaki Studio"
             fill
-            className="object-cover"
-            sizes="(max-width: 640px) 100vw, 40vw"
+            className="object-contain"
+            sizes="(max-width: 1024px) 100vw, 60vw"
           />
         </div>
 
-        <div className="w-full sm:w-3/5 flex flex-col gap-3">
+        <div className="w-full lg:w-2/5 flex flex-col gap-3">
           <h3 className="poppins-font text-gold-primary font-medium text-2xl sm:text-[1.625rem]">
             Totem Interativo
           </h3>
           <p className="text-offwhite-primary text-sm sm:text-base leading-relaxed">
-            Tela touch para o cliente explorar plantas, vistas e diferenciais
-            do empreendimento direto no stand. Formato compacto, com produção
-            ágil.
+            Tela touch com interface desenhada do zero para o seu lançamento.
+            Cada totem é construído sob medida para a identidade visual e o
+            fluxo de navegação que o seu projeto pede.
           </p>
         </div>
       </div>
