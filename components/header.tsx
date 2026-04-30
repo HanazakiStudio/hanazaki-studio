@@ -71,23 +71,6 @@ export function Header() {
             Inicio
           </Link>
 
-          {/* PROJETOS */}
-          {pathname === "/" ? (
-            <LinkScroll
-              to="projetos"
-              smooth
-              offset={-100}
-              duration={500}
-              className={baseClass}
-            >
-              Projetos
-            </LinkScroll>
-          ) : (
-            <Link href="/#projetos" className={baseClass}>
-              Projetos
-            </Link>
-          )}
-
           {/* SOBRE */}
           <Link
             href="/sobre"
