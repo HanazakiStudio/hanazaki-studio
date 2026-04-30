@@ -34,6 +34,10 @@ const config = {
         "gray-secondary": "#181817",
         "light-primary": "#E9E9E9",
         "gold-primary": "#B9A568",
+
+        // 👇 NOVA COR PARA O UNDERLINE
+        "offwhite-primary": "#EAEAEA",
+
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",

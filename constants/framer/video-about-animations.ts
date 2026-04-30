@@ -12,10 +12,10 @@ export const ContainerAnimation = {
 
 export const LineAnimation = {
   initial: {
-    width: 0,
+    scaleX: 0,
   },
   animate: {
-    width: "100%",
+    scaleX: 1,
     transition: {
       ease: "circOut",
       duration: 1.5,

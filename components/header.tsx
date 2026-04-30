@@ -27,9 +27,14 @@ export function Header() {
     location.hash = "#contact";
   }
 
+  const baseClass =
+    "relative poppins-font text-xl font-medium text-light-primary transition-all after:transition-all hover:after:w-full after:content-[''] after:!bg-offwhite-primary after:w-0 after:h-[2px] after:absolute after:bottom-0 after:left-0";
+
   return (
     <AnimatePresence initial={initialAnimation}>
       <header className="w-full px-6 py-6 flex items-center justify-between absolute top-0 left-1/2 -translate-x-1/2 z-40 sm:px-16 sm:py-9 lg:container lg:mx-auto">
+        
+        {/* LOGO */}
         <motion.div
           className="w-14 h-11 sm:w-24 sm:h-20"
           initial="initial"
@@ -48,60 +53,60 @@ export function Header() {
 
         <MobileMenu />
 
+        {/* MENU */}
         <motion.nav
           initial="initial"
           animate="animate"
           variants={MenuAnimation}
           className="hidden lg:flex items-center justify-end gap-x-12"
         >
+          {/* INICIO */}
           <Link
             href="/"
-            className={cn(
-              "relative poppins-font text-xl font-medium text-light-primary transition-all after:transition-all hover:after:w-full after:content-[''] after:bg-light-primary after:w-0 after:h-[1px] after:absolute after:bottom-0 after:right-0",
-              {
-                "text-gold-primary relative after:content-[''] after:bg-gold-primary after:w-full after:h-[1px] after:absolute after:bottom-0 after:right-0 hover:opacity-100 pointer-event-none":
-                  pathname === "/",
-              },
-            )}
+            className={cn(baseClass, {
+              "text-gold-primary after:!bg-gold-primary after:w-full":
+                pathname === "/",
+            })}
           >
             Inicio
           </Link>
 
+          {/* PROJETOS */}
+          {pathname === "/" ? (
+            <LinkScroll
+              to="projetos"
+              smooth
+              offset={-100}
+              duration={500}
+              className={baseClass}
+            >
+              Projetos
+            </LinkScroll>
+          ) : (
+            <Link href="/#projetos" className={baseClass}>
+              Projetos
+            </Link>
+          )}
+
+          {/* SOBRE */}
           <Link
             href="/sobre"
-            className={cn(
-              "relative poppins-font text-xl font-medium text-light-primary transition-all after:transition-all hover:after:w-full after:content-[''] after:bg-light-primary after:w-0 after:h-[1px] after:absolute after:bottom-0 after:right-0",
-              {
-                "text-gold-primary relative after:content-[''] after:bg-gold-primary after:w-full after:h-[1px] after:absolute after:bottom-0 after:right-0 hover:opacity-100 pointer-event-none":
-                  pathname === "/sobre",
-              },
-            )}
+            className={cn(baseClass, {
+              "text-gold-primary after:!bg-gold-primary after:w-full":
+                pathname === "/sobre",
+            })}
           >
             Sobre
           </Link>
-
-          {/* <Link
-            href="/projetos"
-            className={cn(
-              "relative poppins-font text-xl font-medium text-light-primary transition-all after:transition-all hover:after:w-full after:content-[''] after:bg-light-primary after:w-0 after:h-[1px] after:absolute after:bottom-0 after:right-0",
-              {
-                "text-gold-primary relative after:content-[''] after:bg-gold-primary after:w-full after:h-[1px] after:absolute after:bottom-0 after:right-0 hover:opacity-100 pointer-event-none":
-                  pathname === "/projetos",
-              }
-            )}
-          >
-            Projetos
-          </Link> */}
         </motion.nav>
 
+        {/* CONTATO */}
         <LinkScroll
           to="contact"
           smooth
           offset={50}
           onClick={handleContact}
-          className={cn(
-            "cursor-pointer bg-transparent hover:bg-transparent poppins-font text-lg font-medium text-light-primary px-6 py-1 border-2 border-light-primary rounded-md transition-solors hover:border-gold-primary hover:text-gold-primary hidden lg:flex",
-          )}
+          className="cursor-pointer bg-transparent hover:bg-transparent poppins-font text-lg font-medium text-light-primary px-6 py-1 border-2 border-light-primary rounded-md transition-colors hover:border-gold-primary hover:text-gold-primary hidden lg:flex"
         >
           Contato
         </LinkScroll>

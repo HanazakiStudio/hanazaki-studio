@@ -1,110 +1,127 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
+import { Store, Building2 } from "lucide-react";
 
-import { ServicesCard } from "./services-card";
 import {
   ServicesTitleAnimation,
   ServicesContainerAnimation,
 } from "@/constants/framer/services-animations";
 
-const ServicesData = [
-  {
-    title: "Totem Interativo",
-    desc: "Com nossos projetos em Totem Interativo, você pode oferecer uma experiência de interação única e atrativa para seus clientes.",
-    imageUrl: "/images/tv-touch.webp",
-    className: "sm:col-start-1 sm:col-end-3",
-    imageClassName: "!mb-4",
-    width: 512,
-    height: 288,
-  },
-  {
-    title: "Realidade Virtual",
-    desc: "Permita que seus clientes explorem e interajam com o empreendimento de forma imersiva e envolvente.",
-    imageUrl: "/images/vr.png",
-    className: "",
-    imageClassName: "!mb-4",
-    width: 512,
-    height: 288,
-  },
-  {
-    title: "Nuvem",
-    desc: "Nossos projetos na nuvem permitem que seus clientes acessem diretamente a partir de seus dispositivos.",
-    imageUrl: "/images/nuvem.png",
-    className: "",
-    imageClassName: "!mb-4",
-    width: 512,
-    height: 288,
-  },
-  {
-    title: "Projetos Externos",
-    desc: "Com os projetos externos, é possível visualizar o entorno e as comodidades do empreendimento, proporcionando uma visão completa do ambiente ao redor.",
-    imageUrl: "/images/projetos-externos.png",
-    className: "",
-    imageClassName: "!mb-4",
-    width: 512,
-    height: 288,
-  },
-  {
-    title: "Projetos Internos",
-    desc: "Os ambientes internos proporcionam aos clientes a chance de deslumbrar-se com o novo imóvel, juntamente com a opção de personalização.",
-    imageUrl: "/images/projetos-internos.png",
-    className: "",
-    imageClassName: "!mb-4",
-    width: 300,
-    height: 288,
-  },
-];
-
 export function Services() {
-  const [services, setServices] = useState<typeof ServicesData>(ServicesData);
-
-  useEffect(() => {
-    if (window.innerWidth < 1024) {
-      const serv = [...services];
-
-      serv[0].imageUrl = "/images/totem.png";
-      serv[0].width = 300;
-
-      setServices(serv);
-    } else {
-      const serv = [...services];
-
-      serv[0].imageUrl = "/images/totem.webp";
-
-      setServices(serv);
-    }
-  }, []);
-
   return (
     <motion.section
       initial="initial"
       whileInView="animate"
       viewport={{ once: true }}
       variants={ServicesContainerAnimation}
-      className="w-full px-6 mt-12 flex flex-col items-center space-y-6 sm:px-16 lg:mt-24 lg:container lg:mx-auto"
+      className="w-full px-6 mt-12 flex flex-col items-center space-y-8 sm:px-16 lg:mt-24 lg:container lg:mx-auto lg:space-y-10"
     >
       <motion.h2
         variants={ServicesTitleAnimation}
         className="poppins-font text-gold-primary font-medium text-3xl text-center sm:text-4xl"
       >
-        Nossas Soluções
+        Por dentro da experiência
       </motion.h2>
 
-      <div className="w-full grid grid-cols-1 grid-rows-[repeat(5,auto)] gap-4 sm:grid-cols-2 sm:grid-rows-[repeat(3,auto)] lg:grid-rows-[repeat(2,auto)] lg:grid-cols-3">
-        {services.map((service, index) => (
-          <ServicesCard
-            key={index}
-            title={service.title}
-            desc={service.desc}
-            imageUrl={service.imageUrl}
-            className={service.className}
-            imageClassName={service.imageClassName}
-            width={service.width}
-            height={service.height}
+      {/* Card grande — Sala Imersiva (sem título de produto) */}
+      <div className="w-full bg-white/[0.03] border border-white/[0.06] rounded-2xl p-5 sm:p-6 lg:p-8 flex flex-col lg:flex-row gap-6 lg:gap-10 items-center">
+        <div className="w-full lg:w-3/5 relative aspect-video rounded-xl overflow-hidden">
+          <Image
+            src="/images/sala-imersiva.webp"
+            alt="Sala imersiva da Hanazaki Studio em stand de vendas"
+            fill
+            className="object-cover"
+            sizes="(max-width: 1024px) 100vw, 60vw"
           />
-        ))}
+        </div>
+
+        <div className="w-full lg:w-2/5 flex flex-col gap-6 lg:gap-7">
+          {/* Integrada ao stand */}
+          <div className="flex gap-4 items-start">
+            <div className="flex-shrink-0 mt-0.5">
+              <Store
+                className="w-7 h-7 text-gold-primary"
+                strokeWidth={1.5}
+              />
+            </div>
+            <div className="flex flex-col gap-1.5">
+              <h3 className="poppins-font text-gold-primary font-semibold text-lg leading-tight">
+                Integrada ao stand
+              </h3>
+              <p className="text-offwhite-primary text-sm leading-relaxed">
+                Projetada para encaixar no espaço do seu stand. Hardware,
+                conteúdo e fluxo de visita pensados sob medida para o seu
+                lançamento.
+              </p>
+            </div>
+          </div>
+
+          {/* Exterior + Interior */}
+          <div className="flex gap-4 items-start">
+            <div className="flex-shrink-0 mt-0.5">
+              <Building2
+                className="w-7 h-7 text-gold-primary"
+                strokeWidth={1.5}
+              />
+            </div>
+            <div className="flex flex-col gap-1.5">
+              <h3 className="poppins-font text-gold-primary font-semibold text-lg leading-tight">
+                Exterior + Interior
+              </h3>
+              <p className="text-offwhite-primary text-sm leading-relaxed">
+                Sobrevoo do entorno e entrada nos apartamentos para explorar
+                acabamentos e vistas, na mesma experiência.
+              </p>
+            </div>
+          </div>
+
+          {/* Unreal Engine em tempo real */}
+          <div className="flex gap-4 items-start">
+            <div className="flex-shrink-0 mt-0.5 relative w-7 h-7">
+              <Image
+                src="/images/unreal-engine.svg"
+                alt=""
+                fill
+                className="object-contain"
+              />
+            </div>
+            <div className="flex flex-col gap-1.5">
+              <h3 className="poppins-font text-gold-primary font-semibold text-lg leading-tight">
+                Unreal Engine em tempo real
+              </h3>
+              <p className="text-offwhite-primary text-sm leading-relaxed">
+                O cliente conduz a apresentação. Sem vídeo pré-renderizado,
+                interatividade total.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Card grande — Totem Interativo (mesma largura da Sala) */}
+      <div className="w-full bg-white/[0.03] border border-white/[0.06] rounded-2xl p-5 sm:p-6 lg:p-8 flex flex-col lg:flex-row gap-6 lg:gap-10 items-center">
+        <div className="w-full lg:w-3/5 relative aspect-video rounded-xl overflow-hidden">
+          <Image
+            src="/images/totem.webp"
+            alt="Totem interativo touchscreen da Hanazaki Studio"
+            fill
+            className="object-contain"
+            sizes="(max-width: 1024px) 100vw, 60vw"
+          />
+        </div>
+
+        <div className="w-full lg:w-2/5 flex flex-col gap-3">
+          <h3 className="poppins-font text-gold-primary font-medium text-2xl sm:text-[1.625rem]">
+            Totem Interativo
+          </h3>
+          <p className="text-offwhite-primary text-sm sm:text-base leading-relaxed">
+            Tela touch com interface desenhada do zero para o seu lançamento.
+            Cada totem é construído sob medida para a identidade visual e o
+            fluxo de navegação que o seu projeto pede.
+          </p>
+        </div>
       </div>
     </motion.section>
   );
