@@ -167,11 +167,11 @@ export function Services() {
         </motion.div>
 
         <div className="w-full lg:w-[55%] flex flex-col gap-6 lg:gap-7">
-          {/* Título do produto */}
+          {/* Título do produto — destaque tipográfico aumentado */}
           <motion.h3
             variants={pillarAnimation}
             transition={{ duration: 0.5 }}
-            className="poppins-font text-gold-primary font-medium text-2xl sm:text-[1.625rem]"
+            className="poppins-font text-gold-primary font-semibold text-3xl sm:text-[2rem] leading-tight mb-2"
           >
             Totem Interativo
           </motion.h3>
