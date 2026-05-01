@@ -3,7 +3,7 @@
 import { Menu, X } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { scroller } from "react-scroll";
 
@@ -40,25 +40,6 @@ export function MobileMenu() {
         smooth: "easeInOutCubic",
       });
     }, 1000);
-  }
-
-  // 🔥 NOVO: PROJETOS INTELIGENTE
-  function handleProjetos() {
-    handleCloseMenu();
-    disableMouse();
-
-    if (pathname === "/") {
-      setTimeout(() => {
-        scroller.scrollTo("projetos", {
-          smooth: "easeInOutCubic",
-          offset: -100,
-        });
-      }, 1000);
-    } else {
-      setTimeout(() => {
-        window.location.href = "/#projetos";
-      }, 500);
-    }
   }
 
   function disableMouse() {
@@ -98,6 +79,8 @@ export function MobileMenu() {
             className="w-screen h-screen px-6 py-6 bg-gray-secondary fixed overflow-x-hidden top-0 left-0 right-0 bottom-0 z-50 sm:px-16 sm:py-14 lg:hidden"
           >
             <div className="w-full h-full flex flex-col">
+              
+              {/* BOTÃO FECHAR */}
               <div className="w-full flex justify-end items-center">
                 <Button
                   disabled={isAnimating}
@@ -110,6 +93,7 @@ export function MobileMenu() {
                 </Button>
               </div>
 
+              {/* LINKS */}
               <div className="flex flex-1 w-full flex-col items-center justify-center space-y-9 sm:space-y-12">
                 
                 {/* INICIO */}
@@ -128,17 +112,6 @@ export function MobileMenu() {
                   >
                     Inicio
                   </Link>
-                </motion.div>
-
-                {/* PROJETOS */}
-                <motion.div variants={MobileLinksAnimation}>
-                  <button
-                    onClick={handleProjetos}
-                    disabled={isAnimating}
-                    className="poppins-font text-white text-2xl font-medium text-center transition-colors relative sm:text-3xl disabled:opacity-100"
-                  >
-                    Projetos
-                  </button>
                 </motion.div>
 
                 {/* SOBRE */}
