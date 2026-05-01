@@ -71,6 +71,15 @@ export function Services() {
         </motion.div>
 
         <div className="w-full lg:w-2/5 flex flex-col gap-6 lg:gap-7">
+          {/* Título do produto — destaque tipográfico aumentado */}
+          <motion.h3
+            variants={pillarAnimation}
+            transition={{ duration: 0.5 }}
+            className="poppins-font text-gold-primary font-semibold text-3xl sm:text-[2rem] leading-tight mb-2"
+          >
+            Sala Imersiva
+          </motion.h3>
+
           {/* Integrada ao stand */}
           <motion.div
             variants={pillarAnimation}
@@ -84,9 +93,9 @@ export function Services() {
               />
             </div>
             <div className="flex flex-col gap-1.5">
-              <h3 className="poppins-font text-gold-primary font-semibold text-lg leading-tight">
+              <h4 className="poppins-font text-gold-primary font-semibold text-lg leading-tight">
                 Integrada ao stand
-              </h3>
+              </h4>
               <p className="text-offwhite-primary text-sm leading-relaxed">
                 Adaptada ao espaço do seu stand de vendas, com hardware e
                 conteúdo desenvolvidos sob medida para o seu lançamento.
@@ -107,9 +116,9 @@ export function Services() {
               />
             </div>
             <div className="flex flex-col gap-1.5">
-              <h3 className="poppins-font text-gold-primary font-semibold text-lg leading-tight">
+              <h4 className="poppins-font text-gold-primary font-semibold text-lg leading-tight">
                 Exterior + Interior
-              </h3>
+              </h4>
               <p className="text-offwhite-primary text-sm leading-relaxed">
                 Do entorno do empreendimento ao interior dos apartamentos, num
                 único passeio interativo.
@@ -132,9 +141,9 @@ export function Services() {
               />
             </div>
             <div className="flex flex-col gap-1.5">
-              <h3 className="poppins-font text-gold-primary font-semibold text-lg leading-tight">
+              <h4 className="poppins-font text-gold-primary font-semibold text-lg leading-tight">
                 Unreal Engine em tempo real
-              </h3>
+              </h4>
               <p className="text-offwhite-primary text-sm leading-relaxed">
                 Sem vídeo pré-renderizado. O cliente conduz a apresentação, na
                 hora.
