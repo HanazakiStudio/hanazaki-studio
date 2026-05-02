@@ -167,7 +167,7 @@ export function Services() {
           className="w-full lg:w-[45%] relative aspect-video rounded-xl overflow-hidden"
         >
           <Image
-            src="/images/totem.webp"
+            src="/images/totem.webm"
             alt="Totem interativo touchscreen da Hanazaki Studio"
             fill
             className="object-contain"
