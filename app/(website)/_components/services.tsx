@@ -166,13 +166,15 @@ export function Services() {
           transition={{ duration: 0.6 }}
           className="w-full lg:w-[45%] relative aspect-video rounded-xl overflow-hidden"
         >
-          <Image
-            src="/images/totem.webm"
-            alt="Totem interativo touchscreen da Hanazaki Studio"
-            fill
-            className="object-contain"
-            sizes="(max-width: 1024px) 100vw, 45vw"
-          />
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="w-full h-full object-contain"
+          >
+            <source src="/images/totem.webm" type="video/webm" />
+          </video>
         </motion.div>
 
         <div className="w-full lg:w-[55%] flex flex-col gap-6 lg:gap-7">
