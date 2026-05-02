@@ -171,7 +171,7 @@ export function Services() {
             loop
             muted
             playsInline
-            className="w-full h-auto block scale-[1.04] origin-top"
+            className="w-full h-auto block scale-[1.04]"
           >
             <source src="/images/totem.webm" type="video/webm" />
           </video>
