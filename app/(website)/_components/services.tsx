@@ -71,6 +71,7 @@ export function Services() {
         </motion.div>
 
         <div className="w-full lg:w-2/5 flex flex-col gap-6 lg:gap-7">
+          {/* Título do produto — destaque tipográfico aumentado */}
           <motion.h3
             variants={pillarAnimation}
             transition={{ duration: 0.5 }}
@@ -79,6 +80,7 @@ export function Services() {
             Sala Imersiva
           </motion.h3>
 
+          {/* Integrada ao stand */}
           <motion.div
             variants={pillarAnimation}
             transition={{ duration: 0.5 }}
@@ -101,6 +103,7 @@ export function Services() {
             </div>
           </motion.div>
 
+          {/* Exterior + Interior */}
           <motion.div
             variants={pillarAnimation}
             transition={{ duration: 0.5 }}
@@ -123,6 +126,7 @@ export function Services() {
             </div>
           </motion.div>
 
+          {/* Unreal Engine em tempo real */}
           <motion.div
             variants={pillarAnimation}
             transition={{ duration: 0.5 }}
@@ -167,13 +171,14 @@ export function Services() {
             loop
             muted
             playsInline
-            className="w-full h-auto block"
+            className="w-full h-auto block scale-[1.04] origin-top"
           >
             <source src="/images/totem.webm" type="video/webm" />
           </video>
         </motion.div>
 
         <div className="w-full lg:w-[55%] flex flex-col gap-6 lg:gap-7">
+          {/* Título do produto — destaque tipográfico aumentado */}
           <motion.h3
             variants={pillarAnimation}
             transition={{ duration: 0.5 }}
@@ -182,6 +187,7 @@ export function Services() {
             Totem Interativo
           </motion.h3>
 
+          {/* Touch */}
           <motion.div
             variants={pillarAnimation}
             transition={{ duration: 0.5 }}
@@ -203,6 +209,7 @@ export function Services() {
             </div>
           </motion.div>
 
+          {/* Interface customizada */}
           <motion.div
             variants={pillarAnimation}
             transition={{ duration: 0.5 }}
@@ -225,6 +232,7 @@ export function Services() {
             </div>
           </motion.div>
 
+          {/* Versátil */}
           <motion.div
             variants={pillarAnimation}
             transition={{ duration: 0.5 }}
