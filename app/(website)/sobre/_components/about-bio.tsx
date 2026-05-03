@@ -40,15 +40,16 @@ export function AboutBio() {
             variants={TextAnimation}
             className="manrope-font text-base text-light-primary text-center mb-6 md:mb-4 md:text-left"
           >
-            Fundador da Hanazaki Studio, eu trabalhava com visualização
-            arquitetônica com foco em renderização 3D e fotorrealismo, criando
-            imagens e vídeos. Posteriormente, descobri um novo modelo de
-            apresentação dentro desse mercado, que vai muito além da mera
-            visualização, envolvendo também a interatividade. Dessa forma,
-            reestruturamos o estúdio e todo o fluxo de trabalho para atender a
-            essa nova demanda do mercado. Agora, oferecemos passeios interativos
-            e aplicações que podem ser executadas na Web, desktops, TVs com tela
-            sensível ao toque e até mesmo em Realidade Virtual.
+            Fundei a Hanazaki Studio em 2024, depois de anos com visualização
+            arquitetônica — renderização 3D, vídeos fotorrealistas, o pacote
+            tradicional do mercado imobiliário. Em algum ponto ficou claro que
+            imagem sozinha não vendia mais como vendia antes. Cliente de alto
+            padrão queria experiência. Reestruturei o estúdio inteiro para
+            atender essa nova demanda, e hoje a Hanazaki é especializada em
+            salas imersivas e totens interativos em Unreal Engine, voltados
+            exclusivamente para stands de lançamentos. Em 2025 mudei o estúdio
+            para Ribeirão Preto e passei a assumir pessoalmente o comercial —
+            esse tipo de produto precisa ser vendido pelo fundador.
           </motion.p>
         </div>
 
