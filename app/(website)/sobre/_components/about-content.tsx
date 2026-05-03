@@ -3,10 +3,7 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 
-import { AboutCarousel } from "./about-carousel";
 import {
-  TextAnimation,
-  TitleAnimation,
   BelowTitleAnimation,
   BelowTextAnimation,
   BelowContainerAnimation,
@@ -16,32 +13,6 @@ import { AboutBio } from "./about-bio";
 export function AboutContent() {
   return (
     <section className="w-full px-6 mt-12 sm:px-16 lg:container lg:mx-auto">
-      <motion.div className="w-full flex flex-col items-center space-y-4 mb-12">
-        <motion.h2
-          initial="initial"
-          whileInView="animate"
-          viewport={{ once: true, amount: 0.3 }}
-          variants={TitleAnimation}
-          className="poppins-font text-2xl text-gold-primary font-semibold text-center sm:text-3xl lg:text-4xl lg:max-w-2xl"
-        >
-          Acreditamos na evolução e no conhecimento
-        </motion.h2>
-
-        <motion.p
-          initial="initial"
-          whileInView="animate"
-          viewport={{ once: true, amount: 0.3 }}
-          variants={TextAnimation}
-          className="manrope-font text-base text-light-primary text-center sm:text-lg lg:max-w-2xl"
-        >
-          Nosso principal objetivo é impulsionar as vendas de imóveis na planta,
-          utilizando as mais modernas tecnologias disponíveis no mercado atual.
-          Dessa forma, buscamos proporcionar um diferencial competitivo para
-          nossos clientes no mercado imobiliário de alto padrão, onde nossa
-          empresa se destaca por sua especialização.
-        </motion.p>
-      </motion.div>
-
       <AboutBio />
 
       <motion.div
@@ -49,34 +20,34 @@ export function AboutContent() {
         whileInView="animate"
         viewport={{ once: true, amount: 0.3 }}
         variants={BelowContainerAnimation}
-        className="w-full flex flex-col items-center mt-12 mb-4"
+        className="w-full flex flex-col items-center mt-16 mb-12 sm:mt-24"
       >
         <motion.h2
           variants={BelowTitleAnimation}
           className="poppins-font text-gold-primary text-2xl font-semibold text-center mb-4 sm:text-3xl"
         >
-          Parcerias internacionais
+          Onde estamos
         </motion.h2>
 
         <motion.p
           variants={BelowTextAnimation}
-          className="manrope-font text-base text-light-primary text-center mb-4 sm:text-lg lg:max-w-2xl"
+          className="manrope-font text-base text-light-primary text-center mb-8 sm:text-lg lg:max-w-2xl"
         >
-          Atualmente, a Hanazaki Studio atende às principais capitais do Brasil
-          e estabeleceu parcerias internacionais com outros estúdios, buscando
-          transformar tanto o mercado brasileiro quanto o internacional. Essa
-          iniciativa nos coloca constantemente na vanguarda não apenas do
-          mercado brasileiro, mas também do cenário internacional.
+          Atendemos incorporadoras em todo o Brasil. Em 2025 estivemos na Expo
+          Build Chicago, apresentando experiências interativas em Unreal Engine
+          ao mercado norte-americano. Em projetos pontuais, colaboramos com
+          estúdios europeus em entregas para marcas internacionais — incluindo
+          a apresentação da BMW em Milão.
         </motion.p>
 
-        <div className="relative -mt-24 max-w-sm sm:-mt-32">
+        <div className="relative w-full max-w-md">
           <Image
             src="/images/about-international.svg"
-            alt="Parcerias internacionais"
-            width={384}
-            height={384}
+            alt="Brasil, Estados Unidos e Itália — países onde a Hanazaki Studio atuou"
+            width={480}
+            height={480}
             priority
-            className="object-contain object-center"
+            className="object-contain object-center w-full h-auto"
           />
         </div>
       </motion.div>
