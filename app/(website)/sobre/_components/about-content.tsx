@@ -29,8 +29,8 @@ export function AboutContent() {
           Onde estamos
         </motion.h2>
 
-        <div className="relative w-full flex flex-col items-center min-h-[440px] sm:min-h-[500px] lg:min-h-[540px]">
-          <div className="absolute inset-x-0 top-0 flex justify-center pointer-events-none">
+        <div className="relative w-full flex items-center justify-center h-[360px] sm:h-[420px] lg:h-[460px]">
+          <div className="absolute inset-0 flex justify-center pointer-events-none">
             <Image
               src="/images/about-international.svg"
               alt=""
@@ -38,13 +38,13 @@ export function AboutContent() {
               width={520}
               height={480}
               priority
-              className="object-contain w-auto h-[440px] sm:h-[500px] lg:h-[540px]"
+              className="object-contain w-auto h-full"
             />
           </div>
 
           <motion.p
             variants={BelowTextAnimation}
-            className="relative z-10 manrope-font text-base text-light-primary text-center sm:text-lg lg:max-w-2xl"
+            className="relative z-10 manrope-font text-base text-light-primary text-center px-4 sm:text-lg lg:max-w-2xl"
           >
             Atendemos incorporadoras em todo o Brasil. Em 2025 estivemos na Expo
             Build Chicago, apresentando experiências interativas em Unreal Engine
