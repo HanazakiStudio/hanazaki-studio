@@ -68,7 +68,7 @@ export function AboutBio() {
               alt="Leonardo Hanazaki"
               fill
               sizes="(max-width: 768px) 33vw, (max-width: 1200px) 33vw, 33vw"
-              className="object-cover object-top scale-x-[-1]"
+              className="object-cover object-top scale-x-[1]"
             />
           </div>
 
