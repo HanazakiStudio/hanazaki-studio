@@ -20,7 +20,7 @@ export function AboutContent() {
         whileInView="animate"
         viewport={{ once: true, amount: 0.3 }}
         variants={BelowContainerAnimation}
-        className="w-full flex flex-col items-center mt-16 mb-12 sm:mt-24"
+        className="w-full flex flex-col items-center mt-16 mb-4 sm:mt-24"
       >
         <motion.h2
           variants={BelowTitleAnimation}
@@ -31,7 +31,7 @@ export function AboutContent() {
 
         <motion.p
           variants={BelowTextAnimation}
-          className="manrope-font text-base text-light-primary text-center mb-8 sm:text-lg lg:max-w-2xl"
+          className="manrope-font text-base text-light-primary text-center mb-4 sm:text-lg lg:max-w-2xl"
         >
           Atendemos incorporadoras em todo o Brasil. Em 2025 estivemos na Expo
           Build Chicago, apresentando experiências interativas em Unreal Engine
@@ -40,14 +40,14 @@ export function AboutContent() {
           a apresentação da BMW em Milão.
         </motion.p>
 
-        <div className="relative w-full max-w-md">
+        <div className="relative -mt-16 max-w-sm sm:-mt-20 lg:-mt-24">
           <Image
             src="/images/about-international.svg"
             alt="Brasil, Estados Unidos e Itália — países onde a Hanazaki Studio atuou"
-            width={480}
-            height={480}
+            width={384}
+            height={384}
             priority
-            className="object-contain object-center w-full h-auto"
+            className="object-contain object-center"
           />
         </div>
       </motion.div>
