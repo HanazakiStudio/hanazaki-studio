@@ -21,7 +21,7 @@ export function AboutBanner() {
         variants={TextAnimation}
         className="w-full h-full flex justify-center items-end poppins-font text-4xl text-gold-primary font-medium text-center bg-gray-primary/50 pb-6 sm:pb-16 sm:text-5xl lg:items-center lg:pb-0 lg:text-6xl"
       >
-        Sobre
+        Quem Somos?
       </motion.h1>
     </motion.section>
   );
