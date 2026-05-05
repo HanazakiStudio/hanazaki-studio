@@ -22,8 +22,20 @@ export function AboutContent() {
         variants={BelowContainerAnimation}
         className="w-full mt-16 mb-12 sm:mt-24"
       >
-        <div className="w-full flex flex-col items-center gap-8 lg:flex-row lg:items-center lg:justify-between lg:gap-12">
-          <div className="w-full flex flex-col items-center text-center lg:items-start lg:text-left lg:flex-1 lg:max-w-xl">
+        <div className="relative w-full flex flex-col items-center justify-center min-h-[420px] sm:min-h-[480px] lg:min-h-[520px]">
+          <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+            <Image
+              src="/images/about-international.svg"
+              alt=""
+              aria-hidden="true"
+              width={520}
+              height={480}
+              priority
+              className="object-contain w-auto h-[420px] sm:h-[480px] lg:h-[520px]"
+            />
+          </div>
+
+          <div className="relative z-10 w-full flex flex-col items-center text-center px-4">
             <motion.h2
               variants={BelowTitleAnimation}
               className="poppins-font text-gold-primary text-3xl font-semibold mb-4 sm:text-4xl lg:text-5xl"
@@ -33,7 +45,10 @@ export function AboutContent() {
 
             <div className="w-12 h-px bg-gold-primary/60 mb-6" />
 
-            <motion.div variants={BelowTextAnimation} className="space-y-4">
+            <motion.div
+              variants={BelowTextAnimation}
+              className="space-y-4 lg:max-w-2xl"
+            >
               <p className="manrope-font text-base text-light-primary sm:text-lg">
                 Atendemos incorporadoras em todo o Brasil. Em 2025 estivemos na
                 Expo Build Chicago, apresentando experiências interativas em
@@ -46,17 +61,6 @@ export function AboutContent() {
                 da BMW em Milão.
               </p>
             </motion.div>
-          </div>
-
-          <div className="w-full flex justify-center lg:flex-1 lg:justify-end">
-            <Image
-              src="/images/about-international.svg"
-              alt="Brasil, Estados Unidos e Itália — países onde a Hanazaki Studio atuou"
-              width={520}
-              height={480}
-              priority
-              className="object-contain w-auto h-[280px] sm:h-[340px] lg:h-[420px]"
-            />
           </div>
         </div>
       </motion.div>
