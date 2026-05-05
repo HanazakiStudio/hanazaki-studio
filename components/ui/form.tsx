@@ -1,88 +1,176 @@
-import Image from "next/image";
-import Link from "next/link";
+import * as React from "react"
+import * as LabelPrimitive from "@radix-ui/react-label"
+import { Slot } from "@radix-ui/react-slot"
+import {
+  Controller,
+  ControllerProps,
+  FieldPath,
+  FieldValues,
+  FormProvider,
+  useFormContext,
+} from "react-hook-form"
 
-import { FooterForm } from "./footer-form";
-import { SocialMediaLink } from "./social-media-link";
+import { cn } from "@/lib/utils"
+import { Label } from "@/components/ui/label"
 
-export function Footer() {
+const Form = FormProvider
+
+type FormFieldContextValue<
+  TFieldValues extends FieldValues = FieldValues,
+  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>
+> = {
+  name: TName
+}
+
+const FormFieldContext = React.createContext<FormFieldContextValue>(
+  {} as FormFieldContextValue
+)
+
+const FormField = <
+  TFieldValues extends FieldValues = FieldValues,
+  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>
+>({
+  ...props
+}: ControllerProps<TFieldValues, TName>) => {
   return (
-    <footer className="w-full mt-12 sm:mt-24">
-      <div className="w-full px-6 flex flex-col items-center gap-8 
-        sm:flex-row sm:items-stretch sm:justify-between sm:px-16 
-        lg:container lg:mx-auto">
+    <FormFieldContext.Provider value={{ name: props.name }}>
+      <Controller {...props} />
+    </FormFieldContext.Provider>
+  )
+}
 
-        {/* LOGO */}
-        <div className="flex items-center justify-center">
-          <Link
-            href="/"
-            className="relative w-28 h-28 sm:w-36 sm:h-32 lg:w-48 lg:h-48"
-          >
-            <Image
-              src="/images/logo-white.svg"
-              alt="Hanazaki Studio"
-              fill
-              className="object-contain"
-            />
-          </Link>
-        </div>
+const useFormField = () => {
+  const fieldContext = React.useContext(FormFieldContext)
+  const itemContext = React.useContext(FormItemContext)
+  const { getFieldState, formState } = useFormContext()
 
-        {/* DIVIDER */}
-        <div className="hidden sm:block w-px bg-gold-primary" />
+  const fieldState = getFieldState(fieldContext.name, formState)
 
-        {/* FORM */}
-        <div className="flex-1 max-w-xl w-full flex justify-center">
-          <FooterForm />
-        </div>
+  if (!fieldContext) {
+    throw new Error("useFormField should be used within <FormField>")
+  }
 
-        {/* DIVIDER */}
-        <div className="hidden sm:block w-px bg-gold-primary" />
+  const { id } = itemContext
 
-        {/* SOCIAL */}
-        <div className="flex flex-col justify-center gap-12 w-full sm:w-auto">
-          <SocialMediaLink
-            href="https://wa.me/5516997054012?text=Ol%C3%A1%2C+gostaria+de+saber+mais+sobre+o+seu+servi%C3%A7o."
-            alt="Whatsapp"
-            imageSrc="/images/whatsapp.svg"
-            text="(16) 99705 - 4012"
-          />
+  return {
+    id,
+    name: fieldContext.name,
+    formItemId: `${id}-form-item`,
+    formDescriptionId: `${id}-form-item-description`,
+    formMessageId: `${id}-form-item-message`,
+    ...fieldState,
+  }
+}
 
-          <SocialMediaLink
-            href="https://www.instagram.com/hanazaki_studio/"
-            alt="Instagram"
-            imageSrc="/images/instagram.svg"
-            text="@hanazaki_studio"
-          />
+type FormItemContextValue = {
+  id: string
+}
 
-          <SocialMediaLink
-            href="https://www.linkedin.com/in/leonardo-hanazaki-50468a240/"
-            alt="Linkedin"
-            imageSrc="/images/linkedin.svg"
-            text="Hanazaki Studio"
-          />
-        </div>
-      </div>
+const FormItemContext = React.createContext<FormItemContextValue>(
+  {} as FormItemContextValue
+)
 
-      {/* BOTTOM */}
-      <div className="w-full mt-12 py-6 border-t border-light-primary px-6 
-        flex flex-col items-center gap-4 
-        sm:flex-row sm:justify-between sm:px-16">
+const FormItem = React.forwardRef<
+  HTMLDivElement,
+  React.HTMLAttributes<HTMLDivElement>
+>(({ className, ...props }, ref) => {
+  const id = React.useId()
 
-        <span className="poppins-font text-sm text-light-primary font-medium sm:text-base">
-          Hanazaki Studio ©2024
-        </span>
+  return (
+    <FormItemContext.Provider value={{ id }}>
+      <div ref={ref} className={cn("space-y-2", className)} {...props} />
+    </FormItemContext.Provider>
+  )
+})
+FormItem.displayName = "FormItem"
 
-        <span className="poppins-font text-sm text-light-primary font-medium sm:text-base">
-          Desenvolvido por{" "}
-          <a
-            href="https://mkdevsolutions.com/"
-            target="_blank"
-            rel="noreferrer noopener"
-            className="hover:opacity-70 transition"
-          >
-            MKDev
-          </a>
-        </span>
-      </div>
-    </footer>
-  );
+const FormLabel = React.forwardRef<
+  React.ElementRef<typeof LabelPrimitive.Root>,
+  React.ComponentPropsWithoutRef<typeof LabelPrimitive.Root>
+>(({ className, ...props }, ref) => {
+  const { error, formItemId } = useFormField()
+
+  return (
+    <Label
+      ref={ref}
+      className={cn(error && "text-destructive", className)}
+      htmlFor={formItemId}
+      {...props}
+    />
+  )
+})
+FormLabel.displayName = "FormLabel"
+
+const FormControl = React.forwardRef<
+  React.ElementRef<typeof Slot>,
+  React.ComponentPropsWithoutRef<typeof Slot>
+>(({ ...props }, ref) => {
+  const { error, formItemId, formDescriptionId, formMessageId } = useFormField()
+
+  return (
+    <Slot
+      ref={ref}
+      id={formItemId}
+      aria-describedby={
+        !error
+          ? `${formDescriptionId}`
+          : `${formDescriptionId} ${formMessageId}`
+      }
+      aria-invalid={!!error}
+      {...props}
+    />
+  )
+})
+FormControl.displayName = "FormControl"
+
+const FormDescription = React.forwardRef<
+  HTMLParagraphElement,
+  React.HTMLAttributes<HTMLParagraphElement>
+>(({ className, ...props }, ref) => {
+  const { formDescriptionId } = useFormField()
+
+  return (
+    <p
+      ref={ref}
+      id={formDescriptionId}
+      className={cn("text-sm text-muted-foreground", className)}
+      {...props}
+    />
+  )
+})
+FormDescription.displayName = "FormDescription"
+
+const FormMessage = React.forwardRef<
+  HTMLParagraphElement,
+  React.HTMLAttributes<HTMLParagraphElement>
+>(({ className, children, ...props }, ref) => {
+  const { error, formMessageId } = useFormField()
+  const body = error ? String(error?.message) : children
+
+  if (!body) {
+    return null
+  }
+
+  return (
+    <p
+      ref={ref}
+      id={formMessageId}
+      className={cn("text-sm font-medium text-destructive", className)}
+      {...props}
+    >
+      {body}
+    </p>
+  )
+})
+FormMessage.displayName = "FormMessage"
+
+export {
+  useFormField,
+  Form,
+  FormItem,
+  FormLabel,
+  FormControl,
+  FormDescription,
+  FormMessage,
+  FormField,
 }
