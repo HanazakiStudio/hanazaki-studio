@@ -30,7 +30,7 @@ export function Footer() {
         <div className="hidden sm:block w-px bg-gold-primary" />
 
         {/* FORM */}
-        <div className="flex-1 max-w-xl w-full">
+        <div className="flex-1 max-w-xl w-full mx-auto">
           <FooterForm />
         </div>
 
