@@ -7,10 +7,10 @@ import { SocialMediaLink } from "./social-media-link";
 export function Footer() {
   return (
     <footer className="w-full mt-12 sm:mt-24">
-      <div className="w-full px-6 flex flex-col items-center sm:flex-row sm:space-x-5 sm:px-16 sm:justify-between lg:container lg:mx-auto">
+      <div className="w-full px-6 flex flex-col items-center gap-6 sm:flex-row sm:items-center sm:gap-8 sm:px-16 sm:justify-between lg:container lg:mx-auto">
         <Link
           href="/"
-          className="relative w-24 min-w-[96px] h-24 min-h-[96px] mb-4 sm:mt-0 sm:mb-0 sm:w-36 sm:min-w-[144px] sm:h-32 sm:min-h-[128px] lg:w-56 lg:min-w-[224px] lg:h-56 lg:min-h-[224px]"
+          className="relative w-24 h-24 shrink-0 sm:w-36 sm:h-32 lg:w-56 lg:h-56"
         >
           <Image
             src="/images/logo-white.svg"
@@ -20,13 +20,18 @@ export function Footer() {
           />
         </Link>
 
-        <div className="hidden sm:block sm:bg-gold-primary sm:w-[1px] sm:min-w-[1px] sm:h-56" />
+        {/* Divisor 1 — só aparece no desktop, estica conforme a linha */}
+        <div className="hidden sm:block w-px self-stretch bg-gold-primary" />
 
-        <FooterForm />
+        {/* Form ocupa o espaço sobrando */}
+        <div className="w-full sm:flex-1">
+          <FooterForm />
+        </div>
 
-        <div className="w-full h-[1px] bg-gold-primary sm:w-[1px] sm:min-w-[1px] sm:h-56" />
+        {/* Divisor 2 — horizontal no mobile, vertical no desktop */}
+        <div className="w-full h-px bg-gold-primary sm:w-px sm:h-auto sm:self-stretch" />
 
-        <div className="flex items-center justify-center space-x-12 pt-4 px-6 sm:flex-col sm:space-x-0 sm:space-y-12 sm:items-start sm:p-0">
+        <div className="flex items-center justify-center gap-12 shrink-0 sm:flex-col sm:items-start sm:gap-8">
           <SocialMediaLink
             href="https://wa.me/5516997054012?text=Ol%C3%A1%2C+gostaria+de+saber+mais+sobre+o+seu+servi%C3%A7o."
             alt="Whatsapp"
@@ -57,10 +62,10 @@ export function Footer() {
 
         <span className="poppins-font text-sm text-light-primary font-medium sm:text-lg">
           Desenvolvido por{" "}
-          <a
+          
             href="https://mkdevsolutions.com/"
             target="_blank"
-            rel="noreferrer noopenner"
+            rel="noreferrer noopener"
           >
             MKDev
           </a>
