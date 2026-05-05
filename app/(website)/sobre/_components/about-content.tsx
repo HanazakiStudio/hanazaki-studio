@@ -20,9 +20,9 @@ export function AboutContent() {
         whileInView="animate"
         viewport={{ once: true, amount: 0.3 }}
         variants={BelowContainerAnimation}
-        className="w-full mt-8 mb-12 sm:mt-16"
+        className="w-full mt-16 mb-12 sm:mt-24"
       >
-        <div className="relative w-full flex flex-col items-center justify-center min-h-[380px] sm:min-h-[440px] lg:min-h-[500px]">
+        <div className="relative w-full flex flex-col items-center min-h-[380px] sm:min-h-[440px] lg:min-h-[500px]">
           <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
             <Image
               src="/images/about-international.svg"
@@ -35,7 +35,7 @@ export function AboutContent() {
             />
           </div>
 
-          <div className="relative z-10 w-full flex flex-col items-center text-center px-4">
+          <div className="relative z-10 w-full flex flex-col items-center text-center px-4 pt-8 sm:pt-12 lg:pt-16">
             <motion.h2
               variants={BelowTitleAnimation}
               className="poppins-font text-gold-primary text-3xl font-semibold mb-6 sm:text-4xl lg:text-5xl"
