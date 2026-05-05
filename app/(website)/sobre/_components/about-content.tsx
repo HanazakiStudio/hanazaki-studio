@@ -22,7 +22,7 @@ export function AboutContent() {
         variants={BelowContainerAnimation}
         className="w-full mt-16 mb-12 sm:mt-24"
       >
-        <div className="relative w-full flex flex-col items-center justify-center min-h-[420px] sm:min-h-[480px] lg:min-h-[520px]">
+        <div className="relative w-full flex flex-col items-center justify-center min-h-[260px] sm:min-h-[300px] lg:min-h-[340px]">
           <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
             <Image
               src="/images/about-international.svg"
@@ -31,19 +31,17 @@ export function AboutContent() {
               width={520}
               height={480}
               priority
-              className="object-contain w-auto h-[420px] sm:h-[480px] lg:h-[520px]"
+              className="object-contain w-auto h-[210px] sm:h-[240px] lg:h-[260px]"
             />
           </div>
 
           <div className="relative z-10 w-full flex flex-col items-center text-center px-4">
             <motion.h2
               variants={BelowTitleAnimation}
-              className="poppins-font text-gold-primary text-3xl font-semibold mb-4 sm:text-4xl lg:text-5xl"
+              className="poppins-font text-gold-primary text-3xl font-semibold mb-6 sm:text-4xl lg:text-5xl"
             >
               Onde estamos
             </motion.h2>
-
-            <div className="w-12 h-px bg-gold-primary/60 mb-6" />
 
             <motion.div
               variants={BelowTextAnimation}
