@@ -22,7 +22,7 @@ export function AboutContent() {
         variants={BelowContainerAnimation}
         className="w-full mt-16 mb-12 sm:mt-24"
       >
-        <div className="relative w-full flex flex-col items-center min-h-[380px] sm:min-h-[440px] lg:min-h-[500px]">
+        <div className="relative w-full flex flex-col items-center min-h-[450px] sm:min-h-[520px] lg:min-h-[580px]">
           <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
             <Image
               src="/images/about-international.svg"
@@ -31,7 +31,7 @@ export function AboutContent() {
               width={520}
               height={480}
               priority
-              className="object-contain w-auto h-[320px] sm:h-[360px] lg:h-[390px]"
+              className="object-contain w-auto h-[400px] sm:h-[450px] lg:h-[490px] -translate-y-12 sm:-translate-y-14 lg:-translate-y-16"
             />
           </div>
 
