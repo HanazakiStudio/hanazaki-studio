@@ -56,13 +56,15 @@ export function Footer() {
             text="@hanazaki_studio"
           />
 
-          <SocialMediaLink
-            href="https://www.linkedin.com/in/leonardo-hanazaki-50468a240/"
-            alt="Linkedin"
-            imageSrc="/images/linkedin.svg"
-            text="Hanazaki Studio"
-            className="sm:ml-1"
-          />
+          {/* Wrapper para ajuste fino do LinkedIn */}
+          <div className="sm:ml-1">
+            <SocialMediaLink
+              href="https://www.linkedin.com/in/leonardo-hanazaki-50468a240/"
+              alt="Linkedin"
+              imageSrc="/images/linkedin.svg"
+              text="Hanazaki Studio"
+            />
+          </div>
         </div>
       </div>
 
