@@ -1,125 +1,80 @@
-"use client";
+import Image from "next/image";
+import Link from "next/link";
 
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
-import { z } from "zod";
-import { Element } from "react-scroll";
-import { toast } from "react-hot-toast";
-import axios from "axios";
+import { FooterForm } from "./footer-form";
+import { SocialMediaLink } from "./social-media-link";
 
-import { footerFormSchema } from "@/constants/schemas/footer-form-schema";
-import { Button } from "@/components/ui/button";
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "@/components/ui/form";
-import { Input } from "@/components/ui/input";
-import { useState } from "react";
-
-export function FooterForm() {
-  const [isSending, setIsSending] = useState<boolean>(false);
-
-  const form = useForm<z.infer<typeof footerFormSchema>>({
-    resolver: zodResolver(footerFormSchema),
-    defaultValues: {
-      name: "",
-      email: "",
-      message: "",
-    },
-  });
-
-  async function onSubmit(values: z.infer<typeof footerFormSchema>) {
-    try {
-      setIsSending(true);
-
-      const res = await axios.post("/api/send-email", values);
-
-      toast.success(res.data.message || "Mensagem enviada com sucesso!");
-      form.reset();
-    } catch (error) {
-      toast.error("Erro ao enviar. Tente novamente.");
-      console.error(error);
-    } finally {
-      setIsSending(false);
-    }
-  }
-
+export function Footer() {
   return (
-    <Form {...form}>
-      <Element name="contact" className="mb-4 w-full max-w-md sm:mb-0">
-        <form onSubmit={form.handleSubmit(onSubmit)}>
-          
-          <FormField
-            control={form.control}
-            name="name"
-            render={({ field }) => (
-              <FormItem className="mb-4">
-                <FormLabel className="poppins-font text-base font-medium text-light-primary">
-                  Nome
-                </FormLabel>
-                <FormControl>
-                  <Input disabled={isSending} {...field} />
-                </FormControl>
-                <FormMessage className="poppins-font text-sm" />
-              </FormItem>
-            )}
+    <footer className="w-full mt-12 sm:mt-24">
+      <div className="w-full px-6 flex flex-col items-center gap-8 
+        sm:flex-row sm:items-stretch sm:justify-between sm:px-16 
+        lg:container lg:mx-auto">
+
+        {/* LOGO */}
+        <div className="flex items-center justify-center">
+          <Link
+            href="/"
+            className="relative w-28 h-28 sm:w-36 sm:h-32 lg:w-48 lg:h-48"
+          >
+            <Image
+              src="/images/logo-white.svg"
+              alt="Hanazaki Studio"
+              fill
+              className="object-contain"
+            />
+          </Link>
+        </div>
+
+        {/* DIVIDER */}
+        <div className="hidden sm:block w-px bg-gold-primary" />
+
+        {/* FORM */}
+        <div className="flex-1 max-w-xl w-full flex justify-center">
+          <FooterForm />
+        </div>
+
+        {/* DIVIDER */}
+        <div className="hidden sm:block w-px bg-gold-primary" />
+
+        {/* SOCIAL */}
+        <div className="
+          flex flex-row justify-between w-full max-w-xs mx-auto
+          sm:flex-col sm:justify-center sm:gap-12 sm:w-auto
+        ">
+          <SocialMediaLink
+            href="https://wa.me/5516997054012?text=Ol%C3%A1%2C+gostaria+de+saber+mais+sobre+o+seu+servi%C3%A7o."
+            alt="Whatsapp"
+            imageSrc="/images/whatsapp.svg"
+            text="(16) 99705 - 4012"
           />
 
-          <FormField
-            control={form.control}
-            name="email"
-            render={({ field }) => (
-              <FormItem className="mb-4">
-                <FormLabel className="poppins-font text-base font-medium text-light-primary">
-                  E-mail
-                </FormLabel>
-                <FormControl>
-                  <Input disabled={isSending} {...field} />
-                </FormControl>
-                <FormMessage className="poppins-font text-sm" />
-              </FormItem>
-            )}
+          <SocialMediaLink
+            href="https://www.instagram.com/hanazaki_studio/"
+            alt="Instagram"
+            imageSrc="/images/instagram.svg"
+            text="@hanazaki_studio"
           />
 
-          <FormField
-            control={form.control}
-            name="message"
-            render={({ field }) => (
-              <FormItem className="mb-6">
-                <FormLabel className="poppins-font text-base font-medium text-light-primary">
-                  Mensagem
-                </FormLabel>
-                <FormControl>
-                  <Input disabled={isSending} {...field} />
-                </FormControl>
-                <FormMessage className="poppins-font text-sm" />
-              </FormItem>
-            )}
+          <SocialMediaLink
+            href="https://www.linkedin.com/in/leonardo-hanazaki-50468a240/"
+            alt="Linkedin"
+            imageSrc="/images/linkedin.svg"
+            text="Hanazaki Studio"
+            className="sm:ml-1"
           />
+        </div>
+      </div>
 
-          {/* BOTÃO PREMIUM */}
-          <div className="flex justify-center">
-            <button
-              type="submit"
-              disabled={isSending}
-              className="relative overflow-hidden poppins-font font-semibold text-sm sm:text-base bg-gold-primary text-[#0e0e0e] px-6 py-3 rounded-md group disabled:opacity-70"
-            >
-              <span className="relative z-10">
-                {isSending ? "Enviando..." : "Enviar mensagem"}
-              </span>
+      {/* BOTTOM */}
+      <div className="w-full mt-12 py-6 border-t border-light-primary px-6 
+        flex items-center justify-center sm:px-16">
 
-              <span className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <span className="absolute top-0 left-[-100%] w-full h-full bg-gradient-to-r from-transparent via-white/30 to-transparent skew-x-[-20deg] group-hover:left-[100%] transition-all duration-700" />
-              </span>
-            </button>
-          </div>
+        <span className="poppins-font text-sm text-light-primary font-medium sm:text-base">
+          Hanazaki Studio ©2026
+        </span>
 
-        </form>
-      </Element>
-    </Form>
+      </div>
+    </footer>
   );
 }
