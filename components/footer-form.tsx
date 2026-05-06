@@ -1,80 +1,123 @@
-import Image from "next/image";
-import Link from "next/link";
+"use client";
 
-import { FooterForm } from "./footer-form";
-import { SocialMediaLink } from "./social-media-link";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+import { z } from "zod";
+import { Element } from "react-scroll";
+import { toast } from "react-hot-toast";
+import axios from "axios";
 
-export function Footer() {
+import { footerFormSchema } from "@/constants/schemas/footer-form-schema";
+import { Button } from "@/components/ui/button";
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form";
+import { Input } from "@/components/ui/input";
+import { useState } from "react";
+import { Axis3DIcon } from "lucide-react";
+
+export function FooterForm() {
+  const [isSending, setIsSending] = useState<boolean>(false);
+
+  const form = useForm<z.infer<typeof footerFormSchema>>({
+    resolver: zodResolver(footerFormSchema),
+    defaultValues: {
+      name: "",
+      email: "",
+      message: "",
+    },
+  });
+
+  function onSubmit(values: z.infer<typeof footerFormSchema>) {
+    setIsSending(true);
+
+    axios
+      .post("/api/send-email", values)
+      .then((res) => {
+        toast.success(res.data.message);
+        form.reset();
+      })
+      .catch((error) => {
+        toast.error(
+          "Ocorreu um erro no envio da mensagem, tente novamente mais tarde"
+        );
+        console.error(error);
+      })
+      .finally(() => setIsSending(false));
+  }
+
   return (
-    <footer className="w-full mt-12 sm:mt-24">
-      <div className="w-full px-6 flex flex-col items-center gap-8 
-        sm:flex-row sm:items-stretch sm:justify-between sm:px-16 
-        lg:container lg:mx-auto">
+    <Form {...form}>
+      <Element name="contact" className="mb-4 w-full max-w-md sm:mb-0">
+        <form onSubmit={form.handleSubmit(onSubmit)}>
+          <FormField
+            control={form.control}
+            name="name"
+            render={({ field }) => (
+              <FormItem className="mb-4">
+                <FormLabel className="poppins-font text-base font-medium text-light-primary">
+                  Nome
+                </FormLabel>
 
-        {/* LOGO */}
-        <div className="flex items-center justify-center">
-          <Link
-            href="/"
-            className="relative w-28 h-28 sm:w-36 sm:h-32 lg:w-48 lg:h-48"
+                <FormControl>
+                  <Input disabled={isSending} {...field} />
+                </FormControl>
+
+                <FormMessage className="poppins-font text-sm" />
+              </FormItem>
+            )}
+          />
+
+          <FormField
+            control={form.control}
+            name="email"
+            render={({ field }) => (
+              <FormItem className="mb-4">
+                <FormLabel className="poppins-font text-base font-medium text-light-primary">
+                  E-mail
+                </FormLabel>
+
+                <FormControl>
+                  <Input disabled={isSending} {...field} />
+                </FormControl>
+
+                <FormMessage className="poppins-font text-sm" />
+              </FormItem>
+            )}
+          />
+
+          <FormField
+            control={form.control}
+            name="message"
+            render={({ field }) => (
+              <FormItem className="mb-6">
+                <FormLabel className="poppins-font text-base font-medium text-light-primary">
+                  Mensagem
+                </FormLabel>
+
+                <FormControl>
+                  <Input disabled={isSending} {...field} />
+                </FormControl>
+
+                <FormMessage className="poppins-font text-sm" />
+              </FormItem>
+            )}
+          />
+
+          <Button
+            type="submit"
+            disabled={isSending}
+            className="block mx-auto poppins-font text-base font-bold"
           >
-            <Image
-              src="/images/logo-white.svg"
-              alt="Hanazaki Studio"
-              fill
-              className="object-contain"
-            />
-          </Link>
-        </div>
-
-        {/* DIVIDER */}
-        <div className="hidden sm:block w-px bg-gold-primary" />
-
-        {/* FORM */}
-        <div className="flex-1 max-w-xl w-full flex justify-center">
-          <FooterForm />
-        </div>
-
-        {/* DIVIDER */}
-        <div className="hidden sm:block w-px bg-gold-primary" />
-
-        {/* SOCIAL */}
-        <div className="
-          flex flex-row justify-between w-full max-w-xs mx-auto
-          sm:flex-col sm:justify-center sm:gap-12 sm:w-auto
-        ">
-          <SocialMediaLink
-            href="https://wa.me/5516997054012?text=Ol%C3%A1%2C+gostaria+de+saber+mais+sobre+o+seu+servi%C3%A7o."
-            alt="Whatsapp"
-            imageSrc="/images/whatsapp.svg"
-            text="(16) 99705 - 4012"
-          />
-
-          <SocialMediaLink
-            href="https://www.instagram.com/hanazaki_studio/"
-            alt="Instagram"
-            imageSrc="/images/instagram.svg"
-            text="@hanazaki_studio"
-          />
-
-          <SocialMediaLink
-            href="https://www.linkedin.com/in/leonardo-hanazaki-50468a240/"
-            alt="Linkedin"
-            imageSrc="/images/linkedin.svg"
-            text="Hanazaki Studio"
-            className="sm:ml-1"
-          />
-        </div>
-      </div>
-
-      {/* BOTTOM */}
-      <div className="w-full mt-12 py-6 border-t border-light-primary px-6 
-        flex items-center justify-center sm:px-16">
-
-        <span className="poppins-font text-sm text-light-primary font-medium sm:text-base">
-          Hanazaki Studio ©2026
-        </span>
-
-      </div>
-    </footer>
+            {isSending ? <>Enviando</> : <>Enviar</>}
+          </Button>
+        </form>
+      </Element>
+    </Form>
   );
 }
