@@ -20,18 +20,22 @@ export function Footer() {
           />
         </Link>
 
-        {/* Divisor 1 — só aparece no desktop, estica conforme a linha */}
+        {/* Divisor 1 — só aparece no desktop */}
         <div className="hidden sm:block w-px self-stretch bg-gold-primary" />
 
-        {/* Form ocupa o espaço sobrando */}
         <div className="w-full sm:flex-1">
           <FooterForm />
         </div>
 
-        {/* Divisor 2 — horizontal no mobile, vertical no desktop */}
+        {/* Divisor 2 */}
         <div className="w-full h-px bg-gold-primary sm:w-px sm:h-auto sm:self-stretch" />
 
-        <div className="flex items-center justify-center gap-12 shrink-0 sm:flex-col sm:items-start sm:gap-8">
+        {/* SOCIALS */}
+        <div className="
+          flex 
+          flex-row justify-center gap-8 w-full   /* MOBILE */
+          sm:flex-col sm:items-start sm:gap-8 sm:w-auto /* DESKTOP */
+        ">
           <SocialMediaLink
             href="https://wa.me/5516997054012?text=Ol%C3%A1%2C+gostaria+de+saber+mais+sobre+o+seu+servi%C3%A7o."
             alt="Whatsapp"
@@ -55,20 +59,10 @@ export function Footer() {
         </div>
       </div>
 
-      <div className="w-full mt-8 py-4 border-t border-light-primary px-6 flex flex-col space-y-4 items-center justify-between sm:space-y-0 sm:flex-row sm:px-16">
+      {/* FOOTER BOTTOM */}
+      <div className="w-full mt-8 py-4 border-t border-light-primary px-6 flex items-center justify-center sm:px-16">
         <span className="poppins-font text-sm text-light-primary font-medium sm:text-lg">
-          Hanazaki Studio ©2024
-        </span>
-
-        <span className="poppins-font text-sm text-light-primary font-medium sm:text-lg">
-          Desenvolvido por{" "}
-          
-            href="https://mkdevsolutions.com/"
-            target="_blank"
-            rel="noreferrer noopener"
-          >
-            MKDev
-          </a>
+          Hanazaki Studio ©2026
         </span>
       </div>
     </footer>
