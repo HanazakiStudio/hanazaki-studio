@@ -7,38 +7,35 @@ import { SocialMediaLink } from "./social-media-link";
 export function Footer() {
   return (
     <footer className="w-full mt-12 sm:mt-24">
-      <div className="w-full px-6 flex flex-col items-center gap-8 
-        sm:flex-row sm:items-stretch sm:justify-between sm:px-16 
-        lg:container lg:mx-auto">
+      <div className="w-full px-6 flex flex-col items-center gap-6 sm:flex-row sm:items-center sm:gap-8 sm:px-16 sm:justify-between lg:container lg:mx-auto">
+        <Link
+          href="/"
+          className="relative w-24 h-24 shrink-0 sm:w-36 sm:h-32 lg:w-56 lg:h-56"
+        >
+          <Image
+            src="/images/logo-white.svg"
+            alt="Hanazaki Studio"
+            fill
+            className="object-contain object-center"
+          />
+        </Link>
 
-        {/* LOGO */}
-        <div className="flex items-center justify-center">
-          <Link
-            href="/"
-            className="relative w-28 h-28 sm:w-36 sm:h-32 lg:w-48 lg:h-48"
-          >
-            <Image
-              src="/images/logo-white.svg"
-              alt="Hanazaki Studio"
-              fill
-              className="object-contain"
-            />
-          </Link>
-        </div>
+        {/* Divisor 1 — só aparece no desktop */}
+        <div className="hidden sm:block w-px self-stretch bg-gold-primary" />
 
-        {/* DIVIDER */}
-        <div className="hidden sm:block w-px bg-gold-primary" />
-
-        {/* FORM */}
-        <div className="flex-1 max-w-xl w-full flex justify-center">
+        <div className="w-full sm:flex-1">
           <FooterForm />
         </div>
 
-        {/* DIVIDER */}
-        <div className="hidden sm:block w-px bg-gold-primary" />
+        {/* Divisor 2 */}
+        <div className="w-full h-px bg-gold-primary sm:w-px sm:h-auto sm:self-stretch" />
 
-        {/* SOCIAL */}
-        <div className="flex flex-col justify-center gap-12 w-full sm:w-auto">
+        {/* SOCIALS */}
+        <div className="
+          flex 
+          flex-row justify-center gap-8 w-full   /* MOBILE */
+          sm:flex-col sm:items-start sm:gap-8 sm:w-auto /* DESKTOP */
+        ">
           <SocialMediaLink
             href="https://wa.me/5516997054012?text=Ol%C3%A1%2C+gostaria+de+saber+mais+sobre+o+seu+servi%C3%A7o."
             alt="Whatsapp"
@@ -57,30 +54,15 @@ export function Footer() {
             href="https://www.linkedin.com/in/leonardo-hanazaki-50468a240/"
             alt="Linkedin"
             imageSrc="/images/linkedin.svg"
-            text="Hanazaki Studio"
+            text="Leonardo Hanazaki"
           />
         </div>
       </div>
 
-      {/* BOTTOM */}
-      <div className="w-full mt-12 py-6 border-t border-light-primary px-6 
-        flex flex-col items-center gap-4 
-        sm:flex-row sm:justify-between sm:px-16">
-
-        <span className="poppins-font text-sm text-light-primary font-medium sm:text-base">
-          Hanazaki Studio ©2024
-        </span>
-
-        <span className="poppins-font text-sm text-light-primary font-medium sm:text-base">
-          Desenvolvido por{" "}
-          <a
-            href="https://mkdevsolutions.com/"
-            target="_blank"
-            rel="noreferrer noopener"
-            className="hover:opacity-70 transition"
-          >
-            MKDev
-          </a>
+      {/* FOOTER BOTTOM */}
+      <div className="w-full mt-8 py-4 border-t border-light-primary px-6 flex items-center justify-center sm:px-16">
+        <span className="poppins-font text-sm text-light-primary font-medium sm:text-lg">
+          Hanazaki Studio ©2026
         </span>
       </div>
     </footer>
