@@ -39,8 +39,8 @@ export function Footer() {
 
         {/* SOCIAL */}
         <div className="
-          flex flex-row justify-center gap-8 w-full   /* MOBILE */
-          sm:flex-col sm:justify-center sm:gap-12 sm:w-auto /* DESKTOP */
+          flex flex-row justify-between w-full max-w-xs mx-auto
+          sm:flex-col sm:justify-center sm:gap-12 sm:w-auto
         ">
           <SocialMediaLink
             href="https://wa.me/5516997054012?text=Ol%C3%A1%2C+gostaria+de+saber+mais+sobre+o+seu+servi%C3%A7o."
@@ -61,6 +61,7 @@ export function Footer() {
             alt="Linkedin"
             imageSrc="/images/linkedin.svg"
             text="Hanazaki Studio"
+            className="sm:ml-1"
           />
         </div>
       </div>
